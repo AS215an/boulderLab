@@ -553,4 +553,54 @@ footer {
   font-size: 0.95em; /* Slightly smaller than title */
   font-weight: 500; /* Lighter than bold title */
   color: #000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Applying Helvetica Neue */
+}
+
+/* Ticker Banner Styles */
+.ticker-wrapper {
+  display: flex; /* Changed from flex to new styles */
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  height: 40px;
+  position: relative; /* Changed from sticky */
+  font-family: "Menlo", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  --ticker-animation-duration: 60s; /* Re-introduced and set to 60s for slower animation */
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap; /* Added */
+  animation: scroll-left var(--ticker-animation-duration, 30s) linear infinite; /* Keep variable with fallback */
+  padding-left: 100%;
+}
+
+.ticker span {
+  padding: 0 1.5rem;
+  display: inline-block; /* Added */
+  color: black;
+}
+
+.pause-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  color: black;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
