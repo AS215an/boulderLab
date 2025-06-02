@@ -1,0 +1,537 @@
+/* Global Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px; /* Base font size for rem units */
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+/* Header Styles */
+header {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+header nav a {
+  font-weight: 500;
+  color: #555;
+  padding: 5px 0;
+}
+
+header nav a:hover {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-btn,
+.cart-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.search-btn {
+  padding-right: 10px; /* Space for Q icon if added via CSS */
+}
+
+.cart-btn {
+  padding-right: 10px; /* Space for cart count */
+}
+
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.hamburger-icon {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: relative;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  left: 0;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  bottom: -8px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: 15px 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs a {
+  color: #555;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Memberships Page Specific Styles */
+.memberships-page {
+  padding: 30px 0;
+}
+
+.memberships-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Filter Controls */
+.filter-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.filter-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 10px 20px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #bbb;
+}
+
+.filter-btn.active {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.results-count {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 25px;
+  text-align: right;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+  gap: 30px;
+}
+
+/* Product Card */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden; /* Ensures image zoom doesn't break card layout */
+  transition: box-shadow 0.3s ease; /* For optional soft shadow */
+  position: relative; /* For positioning product-info on hover */
+}
+
+.product-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional soft shadow */
+}
+
+.product-image-container {
+  overflow: hidden; /* For image zoom effect */
+  position: relative; /* For overlay positioning */
+  aspect-ratio: 3 / 2; /* Or your desired aspect ratio, e.g., 16/9, 4/3 */
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the container, maintains aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Transparent by default */
+  transition: background-color 0.3s ease;
+  z-index: 1; /* Ensures overlay is above the image but below text if text is moved */
+}
+
+.product-info {
+  padding: 20px;
+  position: relative; /* To ensure it can be layered above overlay if needed */
+  z-index: 2; /* Higher than overlay */
+  background-color: #fff; /* Ensure it has a background on mobile */
+  transition: color 0.3s ease; /* For text color transition on hover */
+}
+
+.product-category {
+  display: inline-block;
+  background-color: #f0f0f0; /* Light grey, adjust as needed */
+  color: #555;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+  min-height: 40px; /* Ensure consistent height */
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 40px 0;
+  margin-top: 40px; /* Space above footer */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+  gap: 30px;
+}
+
+.footer-column h4 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-column h5 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.footer-column p,
+.footer-column ul li a {
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.location {
+  margin-bottom: 20px;
+}
+
+.newsletter input[type="email"] {
+  width: calc(100% - 90px); /* Adjust based on button width */
+  padding: 12px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+.newsletter button[type="submit"] {
+  padding: 12px 20px;
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #555;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.newsletter button[type="submit"]:hover {
+  background-color: #666;
+}
+
+/* Responsive Styles */
+
+/* Tablet Styles (approx 768px) */
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  header nav {
+    display: block !important; /* Ensure nav is visible */
+  }
+  .menu-toggle {
+    display: none;
+  }
+
+  .memberships-page h1 {
+    font-size: 3rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for footer */
+  }
+  .footer-column.newsletter {
+    grid-column: span 2; /* Newsletter spans full width if an odd number */
+    text-align: center; /* Center newsletter on tablet */
+  }
+  .newsletter input[type="email"] {
+    width: 60%;
+  }
+  .newsletter button[type="submit"] {
+    width: auto;
+  }
+}
+
+/* Desktop Styles (approx 1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    /* max-width: 1140px; /* Slightly wider container for desktop */
+  }
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for footer */
+    gap: 20px;
+  }
+  .footer-column.newsletter {
+    grid-column: auto; /* Reset span */
+    text-align: left;
+  }
+  .newsletter input[type="email"] {
+    width: calc(100% - 100px);
+  }
+}
+
+/* Mobile Menu Specifics */
+@media (max-width: 767px) {
+  .header-container nav {
+    display: none; /* Hide nav by default */
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    z-index: 1000;
+  }
+
+  .header-container nav.active {
+    display: block; /* Show when active */
+  }
+
+  .header-container nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-container nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  .header-container nav ul li a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .header-container nav ul li:last-child a {
+    border-bottom: none;
+  }
+  .header-container nav a:hover {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #f0f0f0; /* Maintain consistent border */
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .header-actions .search-btn,
+  .header-actions .cart-btn {
+    font-size: 1.2rem; /* Make icons slightly larger for touch */
+  }
+  .search-btn,
+  .cart-btn {
+    /* Adjust if using text */
+    padding: 5px;
+  }
+}
+
+/* Card Hover - an alternative using an overlay if desired */
+.product-card:hover .product-image-container::after {
+  background-color: rgba(0, 0, 0, 0.1); /* Soft dark overlay */
+}
+
+/* Desktop Hover Effects for Product Cards */
+@media (min-width: 768px) and (hover: hover) {
+  .product-card .product-info {
+    /* By default, product info is visible over the image/overlay */
+    /* We can make it partially transparent and opaque on hover if desired,
+           or move it completely over the image. For now, let's assume it stays as is
+           but text color might change for better legibility if the overlay darkens significantly. */
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+
+  .product-card:hover .card-overlay {
+    background-color: rgba(0, 0, 0, 0.3); /* Subtle dark overlay on hover */
+  }
+
+  /* Optional: If you want text to become white for better contrast on dark overlay */
+  .product-card:hover .product-info * {
+    /* This is a bit aggressive, might need more specific selectors */
+    /* color: #fff; */
+  }
+  .product-card:hover .product-info .product-title,
+  .product-card:hover .product-info .product-description,
+  .product-card:hover .product-info .product-price {
+    /* Example: Make text white, if design calls for it */
+    /* color: #fff; */
+  }
+  .product-card:hover .product-info .product-category {
+    /* background-color: rgba(255,255,255,0.2); */
+    /* color: #fff; */
+  }
+
+  /* If product-info is intended to sit on top of the image/overlay and image takes full card height */
+  /* 
+    .product-image-container {
+        height: 250px; // Or any fixed height 
+    }
+    .product-card {
+        display: flex;
+        flex-direction: column;
+    }
+    .product-info {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 100%;
+       background-color: rgba(255,255,255,0.9); // Semi-transparent background for info
+       transform: translateY(100%); 
+       transition: transform 0.3s ease-in-out;
+    }
+    .product-card:hover .product-info {
+        transform: translateY(0);
+        color: #333; // Ensure text is readable
+    }
+    .product-card:hover .product-info * {
+        color: #333; // Reset color for children if it was white
+    }
+    */
+}

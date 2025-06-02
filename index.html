@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memberships - Boulder Lab</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <div class="logo">BOULDER LAB</div>
+        <nav>
+          <ul>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">MEMBERSHIPS</a></li>
+            <li><a href="#">FIRST TIME</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn">Q SEARCH</button>
+          <button class="cart-btn">00</button>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span class="hamburger-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="breadcrumbs">
+        <div class="container">
+          <p><a href="#">HOME</a> / MEMBERSHIPS</p>
+        </div>
+      </section>
+
+      <section class="memberships-page">
+        <div class="container">
+          <h1>MEMBERSHIPS</h1>
+
+          <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="weekly">Weekly</button>
+            <button class="filter-btn" data-filter="monthly">Monthly</button>
+            <button class="filter-btn" data-filter="yearly">Yearly</button>
+          </div>
+          <p class="results-count">6 Results</p>
+
+          <div class="product-grid">
+            <!-- Product Card 1: 2-Week Trial -->
+            <div class="product-card" data-category="weekly">
+              <div class="product-image-container">
+                <img
+                  src="Images/Card1-2week.png"
+                  alt="2-Week Trial Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category">WEEK</span>
+                <h3 class="product-title">2-Week Trial Membership</h3>
+                <p class="product-description">
+                  Enjoy full membership perks for two weeks!
+                </p>
+                <p class="product-price">$0.00</p>
+              </div>
+            </div>
+
+            <!-- Product Card 2: Month to Month -->
+            <div class="product-card" data-category="monthly">
+              <div class="product-image-container">
+                <img
+                  src="Images/Card2-MonthToMonth.png"
+                  alt="Month to Month Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category">MONTH</span>
+                <h3 class="product-title">Month to Month Membership</h3>
+                <p class="product-description">
+                  Flexible and commitment-free. Cancel anytime!
+                </p>
+                <p class="product-price">$24.00</p>
+              </div>
+            </div>
+
+            <!-- Product Card 3: 6 Month Membership -->
+            <div class="product-card" data-category="monthly">
+              <div class="product-image-container">
+                <img
+                  src="Images/Card3-6Month.png"
+                  alt="6 Month Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category">MONTH</span>
+                <h3 class="product-title">6 Month Membership</h3>
+                <p class="product-description">Our most popular membership!</p>
+                <p class="product-price">$22.00</p>
+              </div>
+            </div>
+
+            <!-- Product Card 4: 12 Month Membership -->
+            <div class="product-card" data-category="monthly">
+              <div class="product-image-container">
+                <img
+                  src="Images/Card4-12Month.png"
+                  alt="12 Month Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category">MONTH</span>
+                <h3 class="product-title">12 Month Membership</h3>
+                <p class="product-description">
+                  Best long-term value for frequent climbers!
+                </p>
+                <p class="product-price">$27.50</p>
+              </div>
+            </div>
+
+            <!-- Product Card 5: Annual Prepaid - Regular -->
+            <div class="product-card" data-category="yearly">
+              <div class="product-image-container">
+                <img
+                  src="Images/Card5-Annual-Regular.png"
+                  alt="Annual Prepaid - Regular"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category">YEAR</span>
+                <h3 class="product-title">Annual Prepaid - Regular</h3>
+                <p class="product-description">
+                  The ultimate value for individuals or groups ready to commit
+                  for a year!
+                </p>
+                <p class="product-price">$20.50</p>
+              </div>
+            </div>
+
+            <!-- Product Card 6: Annual Prepaid - Family -->
+            <div class="product-card" data-category="yearly">
+              <div class="product-image-container">
+                <img
+                  src="Images/Card6-Annual-Family.png"
+                  alt="Annual Prepaid - Family"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category">YEAR</span>
+                <h3 class="product-title">Annual Prepaid - Family</h3>
+                <p class="product-description">
+                  Perfect for families: two adults max, minors included!
+                </p>
+                <p class="product-price">$20.50</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-column location-info">
+          <h4>LOCATION</h4>
+          <div class="location">
+            <h5>Ferntree Gully</h5>
+            <p>8/1821 Ferntree Gully Road</p>
+            <p>Weekdays - 11am to 10pm</p>
+            <p>Weekends - 9am to 8pm</p>
+            <p>(03) 8719 6444</p>
+          </div>
+          <div class="location">
+            <h5>Clayton South</h5>
+            <p>14/186 Princes Hwy</p>
+            <!-- Placeholder, adjust as needed -->
+            <p>Weekdays - 9am to 10pm</p>
+            <p>Early Bird - Thursdays 6am</p>
+            <p>Weekends - 9am to 8pm</p>
+            <p>(03) 8797 3448</p>
+          </div>
+          <div class="location">
+            <h5>Brunswick</h5>
+            <p>260-266 Barkly Street</p>
+            <p>Monday, Wednesday and Friday - 9am to 10pm</p>
+            <p>Tuesday and Thursday - 6am to 10pm</p>
+            <p>Saturday and Sunday - 9am to 10pm</p>
+            <p>Weekends - 9am to 8pm</p>
+            <p>(03) 9304 4540</p>
+          </div>
+        </div>
+        <div class="footer-column learn-more">
+          <h4>LEARN MORE</h4>
+          <ul>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">CLASSES</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">FIRST TIME</a></li>
+          </ul>
+        </div>
+        <div class="footer-column quick-links">
+          <ul>
+            <li><a href="#">GALLERY</a></li>
+            <li><a href="#">LOCATION</a></li>
+            <li><a href="#">MEMBERSHIP</a></li>
+          </ul>
+        </div>
+        <div class="footer-column newsletter">
+          <form>
+            <input type="email" placeholder="Email" />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
