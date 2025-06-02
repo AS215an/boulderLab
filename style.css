@@ -210,27 +210,27 @@ header nav a:hover {
 /* Product Card */
 .product-card {
   background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden; /* Ensures image zoom doesn't break card layout */
-  transition: box-shadow 0.3s ease; /* For optional soft shadow */
-  position: relative; /* For positioning product-info on hover */
+  /* border: 1px solid #e0e0e0; */ /* Removed border */
+  border-radius: 0; /* Changed from 8px to 0 for sharp edges */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  position: relative;
 }
 
 .product-card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional soft shadow */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-image-container {
-  overflow: hidden; /* For image zoom effect */
-  position: relative; /* For overlay positioning */
-  aspect-ratio: 3 / 2; /* Or your desired aspect ratio, e.g., 16/9, 4/3 */
+  /* overflow: hidden; */
+  position: relative;
+  /* aspect-ratio: 3 / 2; */ /* Removed aspect-ratio to let image define height */
 }
 
 .product-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures image covers the container, maintains aspect ratio */
+  height: auto; /* Changed from 100% to auto for natural image height */
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -507,31 +507,50 @@ footer {
     /* background-color: rgba(255,255,255,0.2); */
     /* color: #fff; */
   }
+}
 
-  /* If product-info is intended to sit on top of the image/overlay and image takes full card height */
-  /* 
-    .product-image-container {
-        height: 250px; // Or any fixed height 
-    }
-    .product-card {
-        display: flex;
-        flex-direction: column;
-    }
-    .product-info {
-       position: absolute;
-       bottom: 0;
-       left: 0;
-       width: 100%;
-       background-color: rgba(255,255,255,0.9); // Semi-transparent background for info
-       transform: translateY(100%); 
-       transition: transform 0.3s ease-in-out;
-    }
-    .product-card:hover .product-info {
-        transform: translateY(0);
-        color: #333; // Ensure text is readable
-    }
-    .product-card:hover .product-info * {
-        color: #333; // Reset color for children if it was white
-    }
-    */
+/* Scoped Product Info Styles (ON Running inspired) */
+.product-card .product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 20px; /* Keep existing padding or adjust as needed */
+  padding-left: 0.75rem; /* Specific ON-style padding */
+  font-size: clamp(0.875rem, 0.84rem + 0.13vw, 1rem); /* Responsive font size */
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  transition: color 0.3s ease;
+}
+
+.product-card .product-info .label {
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 0.75em; /* Relative to parent .product-info font-size */
+  letter-spacing: 0.05em;
+  color: #2b00ff;
+  background-color: transparent; /* Overriding previous .product-category background */
+  padding: 0; /* Overriding previous .product-category padding */
+  margin-bottom: 0; /* Overriding previous .product-category margin */
+  font-weight: normal; /* Overriding previous .product-category font-weight */
+}
+
+.product-card .product-info .title {
+  font-weight: bold;
+  font-size: 1em; /* Inherits from .product-info, effectively 1 * clamp(...) */
+  color: #333;
+  margin-bottom: 0.1em;
+}
+
+.product-card .product-info .description {
+  font-size: 0.9em; /* Slightly smaller than title */
+  color: #666;
+  min-height: auto; /* Override previous min-height if not desired */
+  margin-bottom: 0.25em;
+}
+
+.product-card .product-info .price {
+  font-size: 0.95em; /* Slightly smaller than title */
+  font-weight: 500; /* Lighter than bold title */
+  color: #000;
 }
