@@ -163,34 +163,145 @@ header nav a:hover {
   text-align: left;
 }
 
-/* Filter Controls */
+/* == COMPLETELY REMOVE/COMMENT OUT ALL PREVIOUS FILTER STYLES (Original Pills, Complex Chips, first ON-style tabs, dynamic ON-style items) == */
+/*
+.filter-controls { ... old styles ... }
+.filter-btn { ... old styles ... }
+._chip_1rezf_59 { ... old styles ... }
+.on-filter-nav { ... old styles ... }
+.on-filter-item { ... old styles ... }
+*/
+
+/* == NEW ON RUNNING STYLE - DYNAMIC FILTER UI STYLES == */
 .filter-controls {
+  margin-bottom: 25px;
+}
+
+.on-filters-navbar {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 8px; /* For scrollbar or just spacing */
+  gap: 8px; /* Initial gap, might be overridden by specific item margins */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 4.2rem; /* Increased from 1.1rem */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-.filter-btn {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  color: #555;
-  padding: 10px 20px;
-  border-radius: 20px; /* Pill shape */
-  font-size: 1rem;
+.on-filters-navbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Container for chips if we need to group them separately from tabs */
+.on-filters-chip-container {
+  display: inline-flex; /* So it flows with text tabs */
+  align-items: center;
+  /* gap: 8px; */ /* Gap will be managed by chip margins for overlap */
+  margin-right: 8px; /* Reduced from 16px to bring text tabs closer */
+  position: relative; /* For positioning overlapping chips */
+}
+
+.on-filter-chip,
+.on-filter-text-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px; /* Increased from 10px 18px */
+  line-height: 1.4;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 40px; /* Increased from 20px for more rounded chips */
+  transition: all 0.2s ease-in-out;
   font-weight: 500;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  text-decoration: none;
 }
 
-.filter-btn:hover {
-  background-color: #f0f0f0;
-  border-color: #bbb;
+/* Specific Chip Styles */
+.on-filter-chip.is-initial-all-active,
+.on-filter-chip.is-initial-all-active:focus {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #808080;
+  padding: 12px 28px; /* Increased from 10px 24px */
+  outline: none;
 }
 
-.filter-btn.active {
-  background-color: #333;
-  color: #fff;
-  border-color: #333;
+.on-filter-chip.is-clearable,
+.on-filter-chip.is-clearable:focus {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #d1d1d1;
+  padding-left: 20px; /* Increased from 18px */
+  padding-right: 14px; /* Increased from 12px */
+  outline: none;
+}
+
+.on-filter-chip.is-clearable:hover {
+  border-color: #a0a0a0;
+}
+
+.on-filter-chip .on-filter-clear-icon {
+  margin-left: 14px; /* Increased from 12px */
+  display: inline-flex;
+  align-items: center;
+  width: 1em;
+  height: 1em;
+  color: #808080; /* Default icon color for clearable chips */
+}
+
+/* Styles for the overlapping chips */
+.on-filter-chip.is-secondary-all-chip {
+  /* This is the "All X" chip that sits behind */
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1; /* Behind the primary chip */
+  /* Inherits .is-clearable styles for background, padding, icon etc. */
+  /* Override border and text color for a lighter appearance */
+  border-color: #e0e0e0; /* Lighter gray border */
+  color: #555555; /* Slightly lighter text color */
+  cursor: default; /* Make body of this chip non-interactive visually */
+  /* Optionally, make it slightly more transparent or change border if needed */
+  /* opacity: 0.8; */
+}
+
+/* Lighter icon color specifically for the secondary 'All X' chip */
+.on-filter-chip.is-secondary-all-chip .on-filter-clear-icon {
+  color: #aaaaaa; /* Lighter gray icon */
+  cursor: pointer; /* Ensure the icon is interactive visually */
+}
+
+/* Ensure icon color for the primary active category chip is #808080 */
+.on-filter-chip.is-primary-active-category-chip .on-filter-clear-icon {
+  color: #808080; /* Default gray icon, same as general clearable chips */
+}
+
+.on-filter-chip.is-initial-all-active .on-filter-clear-icon {
+  display: none; /* No icon for the initial "All" active chip */
+}
+
+/* Specific Text Tab Styles */
+.on-filter-text-tab {
+  padding: 12px 14px; /* Increased from 10px 12px */
+  border-radius: 0;
+  color: #808080; /* Default light gray for inactive tabs */
+  margin: 0 2px; /* Reduced from 0 4px for less space between tabs */
+}
+
+.on-filter-text-tab.is-main-all-active {
+  color: #000000;
+  font-weight: normal; /* Changed from 500, to normal weight */
+  border-bottom: 2px solid #000000;
+  padding-bottom: calc(12px - 2px); /* Adjusted from calc(10px - 2px) */
+}
+
+.on-filter-text-tab:not(.is-main-all-active):hover {
+  color: #333333;
 }
 
 .results-count {
@@ -569,7 +680,7 @@ footer {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 12px;
-  --ticker-animation-duration: 60s; /* Re-introduced and set to 60s for slower animation */
+  --ticker-animation-duration: 90s; /* Increased from 60s to make it slower */
 }
 
 .ticker {
@@ -603,4 +714,28 @@ footer {
   100% {
     transform: translateX(-100%);
   }
+}
+
+/* Styles for the overlapping chips */
+.on-filter-chip.is-secondary-all-chip {
+  /* This is the "All X" chip that sits behind */
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1; /* Behind the primary chip */
+  /* Inherits .is-clearable styles for background, padding, icon etc. */
+  /* Override border and text color for a lighter appearance */
+  border-color: #e0e0e0; /* Lighter gray border */
+  color: #555555; /* Slightly lighter text color */
+  cursor: default; /* Make body of this chip non-interactive visually */
+  /* Optionally, make it slightly more transparent or change border if needed */
+  /* opacity: 0.8; */
+}
+
+.on-filter-chip.is-primary-active-category-chip {
+  /* This is the active category chip e.g. "Weekly X" that sits in front */
+  position: relative; /* Stays in flow, but allows z-index */
+  z-index: 2; /* In front of the secondary chip */
+  margin-left: 10px; /* Adjusted for less overlap, revealing more of the chip behind */
+  /* Inherits .is-clearable styles for border, icon etc. */
 }
