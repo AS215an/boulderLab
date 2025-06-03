@@ -63,11 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
       type === "chip" ? "on-filter-chip" : "on-filter-text-tab"
     );
 
+    // Uppercase the label for display, keeping "All" as is
+    const displayLabel =
+      label.toLowerCase() === "all" ? "All" : label.toUpperCase();
+
     let iconHTML =
       '<span class="on-filter-clear-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>';
 
     if (type === "chip") {
-      element.innerHTML = `<span>${label}</span>`; // Label first
+      element.innerHTML = `<span>${displayLabel}</span>`; // Use uppercased label
 
       if (options.isInitialAll) {
         element.classList.add("is-initial-all-active");
@@ -85,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       // Text Tab
-      element.innerHTML = `<span>${label}</span>`;
+      element.innerHTML = `<span>${displayLabel}</span>`; // Use uppercased label
       if (options.isMainAllActiveTab) {
         element.classList.add("is-main-all-active");
       } else if (options.isInactiveTab) {

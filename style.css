@@ -9,6 +9,22 @@ body {
   line-height: 1.6;
 }
 
+/* Site Brand Bar */
+.site-brand-bar {
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.site-brand-title {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -49,8 +65,8 @@ h5 {
 
 /* Header Styles */
 header {
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  padding: 5px 0; /* Adjusted padding */
+  border-bottom: 1px solid #d1d1d1;
   background-color: #fff;
 }
 
@@ -60,23 +76,67 @@ header {
   align-items: center;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-header nav ul {
+.header-left-section {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  margin-left: -25px; /* Pulls the group 10px to the left */
+  /* No specific order needed here, it will be the first item in header-container by default */
 }
 
-header nav a {
+.menu-toggle {
+  background: none;
+  border: none;
+  padding: 10px;
+  /* order: 1; */ /* Removed order, handled by parent flex */
+  margin-right: 10px; /* Space between hamburger and logo */
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-icon-img {
+  max-height: 33px; /* User specified size, 1.3x bigger */
+  width: auto;
+}
+
+.logo {
+  /* order: 2; */ /* Removed order, handled by parent flex */
+  line-height: 0;
+}
+
+.logo img {
+  max-height: 45px; /* User specified size */
+  width: auto;
+  display: block; /* Ensure it behaves as a block */
+}
+
+/* Mobile Nav - hidden on desktop by default */
+.mobile-nav {
+  /* display: none; */ /* No longer needed here as it's not a direct child of header-container for ordering */
+  /* order: 3; */ /* Removed */
+  /* Styling for dropdown appearance is in the @media (max-width: 767px) block */
+}
+
+.mobile-nav.active {
+  display: block; /* JS toggles this for mobile view */
+}
+
+/* Styles for the links within .mobile-nav, adapted from old header nav styles */
+.mobile-nav ul {
+  display: flex; /* Will be column in mobile view */
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav a {
   font-weight: 500;
   color: #555;
   padding: 5px 0;
+  text-decoration: none;
 }
 
-header nav a:hover {
+.mobile-nav a:hover {
   color: #000;
   border-bottom: 2px solid #000;
 }
@@ -84,61 +144,51 @@ header nav a:hover {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 35px; /* Increased from 20px for consistency */
+  /* order: 4; */ /* Removed order, this will naturally be pushed to the right */
 }
 
 .search-btn,
 .cart-btn {
   background: none;
   border: none;
-  font-size: 0.9rem;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  color: #000;
+  cursor: pointer;
 }
 
 .search-btn {
-  padding-right: 10px; /* Space for Q icon if added via CSS */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: normal;
+  /* margin-right: 10px; */ /* Removed, parent .header-actions gap now handles spacing */
 }
 
-.cart-btn {
-  padding-right: 10px; /* Space for cart count */
+.search-icon-img {
+  max-height: 24px; /* Adjusted size, 1.2x bigger */
+  width: auto;
+  transform: translateY(-2px);
 }
 
-.menu-toggle {
-  display: none; /* Hidden on desktop */
-  background: none;
-  border: none;
-  padding: 10px;
+.cart-icon-img {
+  max-height: 20px; /* Let's make it similar to search icon, adjust as needed */
+  width: auto;
 }
 
-.hamburger-icon {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  position: relative;
-}
-
-.hamburger-icon::before,
-.hamburger-icon::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  left: 0;
-}
-
-.hamburger-icon::before {
-  top: -8px;
-}
-
-.hamburger-icon::after {
-  bottom: -8px;
+.cart-count {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #000;
+  font-weight: normal;
+  line-height: 1;
 }
 
 /* Breadcrumbs */
 .breadcrumbs {
-  padding: 15px 0;
+  padding: 5px 0; /* Reduced from 15px 0 to make section shorter */
   background-color: #f9f9f9;
   border-bottom: 1px solid #eee;
   font-size: 0.9rem;
@@ -174,7 +224,8 @@ header nav a:hover {
 
 /* == NEW ON RUNNING STYLE - DYNAMIC FILTER UI STYLES == */
 .filter-controls {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  margin-top: 35px; /* Added to create space above the filter bar */
 }
 
 .on-filters-navbar {
@@ -186,7 +237,6 @@ header nav a:hover {
   gap: 8px; /* Initial gap, might be overridden by specific item margins */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
-  font-size: 4.2rem; /* Increased from 1.1rem */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -210,15 +260,17 @@ header nav a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px; /* Increased from 10px 18px */
+  padding: 10px 20px; /* Reduced from 12px 20px */
   line-height: 1.4;
   cursor: pointer;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 40px; /* Increased from 20px for more rounded chips */
+  border-radius: 40px;
   transition: all 0.2s ease-in-out;
-  font-weight: 500;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   text-decoration: none;
+  font-size: 1rem; /* Reduced from 1.1rem */
 }
 
 /* Specific Chip Styles */
@@ -227,7 +279,7 @@ header nav a:hover {
   background-color: #ffffff;
   color: #000000;
   border: 1px solid #808080;
-  padding: 12px 28px; /* Increased from 10px 24px */
+  padding: 10px 26px; /* Reduced from 12px 28px */
   outline: none;
 }
 
@@ -236,8 +288,9 @@ header nav a:hover {
   background-color: #ffffff;
   color: #333333;
   border: 1px solid #d1d1d1;
-  padding-left: 20px; /* Increased from 18px */
-  padding-right: 14px; /* Increased from 12px */
+  /* Vertical padding inherited from base .on-filter-chip (now 10px) */
+  padding-left: 18px; /* Reduced from 20px */
+  padding-right: 12px; /* Reduced from 14px */
   outline: none;
 }
 
@@ -277,8 +330,12 @@ header nav a:hover {
 }
 
 /* Ensure icon color for the primary active category chip is #808080 */
-.on-filter-chip.is-primary-active-category-chip .on-filter-clear-icon {
-  color: #808080; /* Default gray icon, same as general clearable chips */
+.on-filter-chip.is-primary-active-category-chip {
+  /* This is the active category chip e.g. "Weekly X" that sits in front */
+  position: relative; /* Stays in flow, but allows z-index */
+  z-index: 2; /* In front of the secondary chip */
+  margin-left: 10px; /* Adjusted for less overlap, revealing more of the chip behind */
+  /* Inherits .is-clearable styles for border, icon etc. */
 }
 
 .on-filter-chip.is-initial-all-active .on-filter-clear-icon {
@@ -287,7 +344,7 @@ header nav a:hover {
 
 /* Specific Text Tab Styles */
 .on-filter-text-tab {
-  padding: 12px 14px; /* Increased from 10px 12px */
+  padding: 10px 12px; /* Reduced from 12px 14px */
   border-radius: 0;
   color: #808080; /* Default light gray for inactive tabs */
   margin: 0 2px; /* Reduced from 0 4px for less space between tabs */
@@ -297,7 +354,7 @@ header nav a:hover {
   color: #000000;
   font-weight: normal; /* Changed from 500, to normal weight */
   border-bottom: 2px solid #000000;
-  padding-bottom: calc(12px - 2px); /* Adjusted from calc(10px - 2px) */
+  padding-bottom: calc(10px - 2px); /* Adjusted from calc(12px - 2px) */
 }
 
 .on-filter-text-tab:not(.is-main-all-active):hover {
@@ -474,11 +531,52 @@ footer {
     width: 90%;
   }
 
-  header nav {
-    display: block !important; /* Ensure nav is visible */
+  /* Adjust .mobile-nav for DESKTOP view */
+  .mobile-nav {
+    display: flex !important; /* Show on desktop */
+    flex-grow: 1; /* Allow it to take space between logo and actions */
+    justify-content: flex-start; /* Align links to the start (left) */
+    order: 2; /* Explicitly set order if needed, after header-left, before actions */
+    margin-left: 30px; /* Add space after the logo section */
   }
+
+  .mobile-nav ul {
+    flex-direction: row; /* Links in a row */
+    gap: 35px; /* Increased gap for desktop */
+  }
+
+  .mobile-nav a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal; /* Regular weight */
+    font-size: 0.9rem; /* Consistent with previous desktop nav attempt */
+    text-transform: uppercase;
+    color: #333;
+    padding: 5px 0; /* Keep vertical padding consistent */
+    border-bottom: 2px solid transparent; /* For hover effect */
+  }
+
+  .mobile-nav a:hover {
+    color: #000;
+    border-bottom: 2px solid #000; /* Keep consistent hover */
+  }
+
   .menu-toggle {
-    display: none;
+    display: flex; /* Ensure menu toggle remains visible as per screenshot */
+  }
+
+  /* Original rule to hide mobile-nav on desktop:
+    .mobile-nav {
+      display: none !important; 
+    }
+  */
+  /* This is now handled by the rules above, specific to desktop */
+
+  /* Ensure header-left-section and header-actions have appropriate order if needed */
+  .header-left-section {
+    order: 1;
+  }
+  .header-actions {
+    order: 3;
   }
 
   .memberships-page h1 {
@@ -528,56 +626,76 @@ footer {
 
 /* Mobile Menu Specifics */
 @media (max-width: 767px) {
-  .header-container nav {
-    display: none; /* Hide nav by default */
+  .header-container .mobile-nav {
+    display: none; /* Hidden by default on mobile */
     position: absolute;
-    top: 100%; /* Position below header */
+    top: 100%; /* Position below header for dropdown */
     left: 0;
+    right: 0; /* Ensure it spans full width */
     width: 100%;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
     z-index: 1000;
+    order: initial; /* Reset order for mobile stacking */
   }
 
-  .header-container nav.active {
+  .header-container .mobile-nav.active {
     display: block; /* Show when active */
   }
 
-  .header-container nav ul {
-    flex-direction: column;
+  .header-container .mobile-nav ul {
+    flex-direction: column; /* Stack links vertically */
     align-items: center;
+    gap: 0; /* Remove gap for full-width list items */
   }
 
-  .header-container nav ul li {
+  .header-container .mobile-nav ul li {
     width: 100%;
     text-align: center;
   }
-  .header-container nav ul li a {
+  .header-container .mobile-nav ul li a {
     display: block;
-    padding: 10px 0;
+    padding: 10px 15px; /* Adjust padding for better touch targets */
     border-bottom: 1px solid #f0f0f0;
+    font-size: 1rem; /* Slightly larger font for mobile menu */
+    text-transform: uppercase; /* Match desktop */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Match desktop */
+    font-weight: normal; /* Match desktop */
+    color: #333; /* Match desktop */
   }
-  .header-container nav ul li:last-child a {
+  .header-container .mobile-nav ul li:last-child a {
     border-bottom: none;
   }
-  .header-container nav a:hover {
+  .header-container .mobile-nav a:hover {
     background-color: #f9f9f9;
-    border-bottom: 1px solid #f0f0f0; /* Maintain consistent border */
+    color: #000;
+    border-bottom-color: #f0f0f0; /* Maintain border color on hover */
   }
 
   .menu-toggle {
-    display: block; /* Show hamburger on mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .header-actions .search-btn,
   .header-actions .cart-btn {
-    font-size: 1.2rem; /* Make icons slightly larger for touch */
+    font-size: 1rem; /* Base size for the buttons themselves */
   }
-  .search-btn,
-  .cart-btn {
-    /* Adjust if using text */
-    padding: 5px;
+  .search-btn span, /* Target text part of search button (SEARCH) */
+  .cart-count {
+    font-size: 0.8rem; /* Slightly smaller text on mobile for action button text */
+  }
+  .logo img {
+    max-height: 35px; /* Slightly smaller logo on mobile */
+  }
+  .hamburger-icon-img {
+    max-height: 22px; /* Slightly smaller menu icon on mobile */
+  }
+  .search-icon-img,
+  .cart-icon-img {
+    max-height: 18px; /* Slightly smaller search/cart icons on mobile */
   }
 }
 
@@ -624,7 +742,7 @@ footer {
 .product-card .product-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.25rem; /* Reduced from 0.25rem for tighter spacing */
   padding: 20px; /* Keep existing padding or adjust as needed */
   padding-left: 0.75rem; /* Specific ON-style padding */
   font-size: clamp(0.875rem, 0.84rem + 0.13vw, 1rem); /* Responsive font size */
@@ -635,7 +753,7 @@ footer {
 }
 
 .product-card .product-info .label {
-  font-family: monospace;
+  font-family: "Menlo Light", Menlo, monospace;
   text-transform: uppercase;
   font-size: 0.75em; /* Relative to parent .product-info font-size */
   letter-spacing: 0.05em;
@@ -647,21 +765,23 @@ footer {
 }
 
 .product-card .product-info .title {
-  font-weight: bold;
-  font-size: 1em; /* Inherits from .product-info, effectively 1 * clamp(...) */
+  font-family: "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-weight: bold; /* User updated */
+  font-size: 1.2em; /* User updated */
   color: #333;
-  margin-bottom: 0.1em;
+  margin-bottom: 0; /* Was 0.1em, set to 0 for consistent gap */
 }
 
 .product-card .product-info .description {
-  font-size: 0.9em; /* Slightly smaller than title */
+  font-size: 1em; /* Increased from 0.9em for better readability */
   color: #666;
   min-height: auto; /* Override previous min-height if not desired */
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25em; /* Was 0.25em, set to 0 for consistent gap */
 }
 
 .product-card .product-info .price {
-  font-size: 0.95em; /* Slightly smaller than title */
+  font-size: 1.05em; /* Increased from 0.95em for better readability */
   font-weight: 500; /* Lighter than bold title */
   color: #000;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Applying Helvetica Neue */
@@ -680,7 +800,7 @@ footer {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 12px;
-  --ticker-animation-duration: 90s; /* Increased from 60s to make it slower */
+  --ticker-animation-duration: 100s; /* Increased from 60s to make it slower */
 }
 
 .ticker {
@@ -739,3 +859,6 @@ footer {
   margin-left: 10px; /* Adjusted for less overlap, revealing more of the chip behind */
   /* Inherits .is-clearable styles for border, icon etc. */
 }
+
+/* Show desktop nav on larger screens */
+/* @media (min-width: 768px) { ... } */
