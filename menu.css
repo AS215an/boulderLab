@@ -1,0 +1,304 @@
+/* Full-screen Menu Styles */
+.full-screen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Black background as per design */
+  color: #fff;
+  z-index: 10000; /* High z-index to cover everything */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  display: none; /* Hidden by default */
+  opacity: 0; /* For fade-in animation */
+  transition: opacity 0.3s ease-in-out;
+  visibility: hidden; /* Add visibility for smoother animation */
+}
+
+.full-screen-menu.active {
+  display: block; /* Show when active */
+  opacity: 1; /* Fade in */
+  visibility: visible; /* Make visible */
+}
+
+.menu-header {
+  padding: 20px 0;
+  border-bottom: 1px solid #333; /* Subtle separator line */
+}
+
+.menu-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Main BOULDER LAB title styling - font size 100, Fira Sans Medium */
+.menu-boulder-lab-title {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 100px;
+  font-weight: 500; /* Medium weight */
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -2px; /* Slightly tighter spacing for large text */
+}
+
+.menu-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-header-right .search-btn,
+.menu-header-right .close-menu-btn {
+  background: none;
+  border: none;
+  color: #fff; /* White text for buttons */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem; /* Adjust font size */
+  font-weight: normal;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px 10px; /* Add some padding */
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-header-right .search-btn:hover,
+.menu-header-right .close-menu-btn:hover {
+  color: #bbb; /* Slightly lighter on hover */
+}
+
+.menu-content {
+  padding: 40px 0;
+}
+
+.menu-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns for proper layout */
+  grid-template-rows: auto auto; /* Two rows */
+  gap: 40px; /* Gap between columns */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Specific grid positioning to match Figma layout */
+.menu-column:nth-child(1) {
+  /* INFORMATION */
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.menu-column:nth-child(2) {
+  /* PRICING */
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.menu-column:nth-child(3) {
+  /* CLASSES */
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.menu-column:nth-child(4) {
+  /* YOUTH PROGRAM */
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.menu-column:nth-child(5) {
+  /* EVENTS */
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Section headers (INFORMATION, PRICING, etc.) - font size 10, Helvetica Neue Medium */
+.menu-column h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px; /* As requested */
+  font-weight: 500; /* Medium weight */
+  color: #fff; /* White color */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Slightly more spacing for small text */
+  border-bottom: 1px solid #333; /* Separator line below heading */
+  padding-bottom: 10px; /* Space below heading and line */
+}
+
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-column ul li {
+  margin-bottom: 2px; /* Tiny bit more space between menu items */
+}
+
+/* Individual menu items - font size 25, Helvetica Neue Medium */
+.menu-column ul li a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px; /* As requested */
+  font-weight: 500; /* Medium weight */
+  color: #fff; /* White link color */
+  text-decoration: none;
+  padding: 3px 0; /* Slightly increased from 2px to 3px for better balance */
+  display: inline-block; /* Needed for hover background/padding */
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  line-height: 1.1; /* Added tight line-height for closer text spacing */
+}
+
+/* Menu Link Hover Styles */
+.menu-column ul li a:hover {
+  color: #2b00ff; /* Text color */
+  background-color: #b0faff; /* Highlight background */
+  font-weight: 500; /* Keep Medium weight */
+  padding: 3px 10px; /* Updated to match the adjusted base padding */
+  margin-left: -10px; /* Shift left slightly to align background */
+}
+
+.menu-circular-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to flex-start to align with top */
+  grid-column: 3; /* Position in the third column of second row */
+  grid-row: 2;
+  padding-top: 0px; /* Keep at 0, but now aligned to top */
+  cursor: pointer; /* Add cursor pointer for hover effect */
+  transition: transform 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.menu-circular-text:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.menu-circular-text svg {
+  width: 300px; /* Increased from 200px to 300px for bigger circle */
+  height: auto;
+}
+
+.menu-circular-text text {
+  fill: #fff; /* White text color */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Helvetica Neue font */
+  font-size: 18px; /* Increased from 14px to 18px for bigger letters */
+  font-weight: bold; /* Changed from 500 to bold as requested */
+  text-transform: uppercase;
+  font-variant-ligatures: none;
+  letter-spacing: 8px; /* Increased from 3px to 8px for more space between words */
+  animation: rotate 100s linear infinite; /* Animation duration 90-100s */
+  transform-origin: 250px 250px; /* Center of SVG viewBox */
+  transition: fill 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.menu-circular-text:hover text {
+  fill: #b0faff; /* Change to blue on hover */
+}
+
+/* Center EMAIL text styling */
+.menu-circular-text .center-text {
+  fill: #fff; /* White text color */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px; /* Increased from 24px to 32px for bigger text */
+  font-weight: bold;
+  font-style: italic; /* Added italic styling */
+  text-transform: uppercase;
+  text-anchor: middle; /* Center the text horizontally */
+  dominant-baseline: central; /* Center the text vertically */
+  letter-spacing: 2px;
+  animation: none; /* No rotation for center text */
+  transition: fill 0.3s ease-in-out;
+}
+
+.menu-circular-text:hover .center-text {
+  fill: #b0faff; /* Light blue on hover to contrast with the blue circle text */
+}
+
+/* Circular highlight background that appears on hover */
+.menu-circular-text .highlight-circle {
+  fill: #2b00ff; /* Light blue color */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade in/out */
+}
+
+.menu-circular-text:hover .highlight-circle {
+  opacity: 0.3; /* Low opacity light blue highlight on hover */
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments for menu grid and circular text */
+@media (min-width: 768px) {
+  .menu-links-grid {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on tablet */
+  }
+  .menu-circular-text {
+    grid-column: 3; /* Stay in third column */
+    grid-row: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-links-grid {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on desktop */
+  }
+  .menu-circular-text {
+    grid-column: 3; /* Stay in third column */
+    grid-row: 2;
+  }
+}
+
+/* Responsive adjustments for the main title */
+@media (max-width: 768px) {
+  .menu-boulder-lab-title {
+    font-size: 60px; /* Smaller on mobile */
+  }
+
+  /* On mobile, stack columns vertically */
+  .menu-links-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-template-rows: auto; /* Auto rows */
+  }
+
+  .menu-column:nth-child(1),
+  .menu-column:nth-child(2),
+  .menu-column:nth-child(3),
+  .menu-column:nth-child(4),
+  .menu-column:nth-child(5) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .menu-circular-text {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .menu-circular-text svg {
+    width: 250px; /* Slightly smaller on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-boulder-lab-title {
+    font-size: 40px; /* Even smaller on very small screens */
+  }
+
+  .menu-circular-text svg {
+    width: 200px; /* Smaller on very small screens */
+  }
+
+  .menu-circular-text text {
+    font-size: 14px; /* Smaller font on very small screens */
+    letter-spacing: 6px; /* Reduced letter spacing on small screens */
+  }
+}

@@ -1,13 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile Menu Toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const headerNav = document.querySelector("header nav");
-
-  if (menuToggle && headerNav) {
-    menuToggle.addEventListener("click", () => {
-      headerNav.classList.toggle("active");
-    });
-  }
+  // Note: Mobile Menu Toggle functionality moved to menu.js
+  // The hamburger menu now opens the full-screen menu instead of mobile nav
 
   // --- ON-STYLE DYNAMIC FILTER LOGIC ---
   const filterNavbar = document.querySelector(".on-filters-navbar");
