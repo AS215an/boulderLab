@@ -454,73 +454,290 @@ header {
 
 /* Footer Styles */
 footer {
-  background-color: #222;
-  color: #ccc;
-  padding: 40px 0;
+  background-color: #000; /* Figma: Black background */
+  color: #fff; /* Figma: White text */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Figma: Helvetica Neue */
+  padding: 60px 0; /* Increased padding for more space overall, can adjust */
   margin-top: 40px; /* Space above footer */
+  font-size: 0.875rem; /* Base font size for footer text, approx 14px if root is 16px */
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile: 1 column */
-  gap: 30px;
+  grid-template-columns: 1fr; /* Mobile: 1 column by default */
+  gap: 40px; /* Increased gap between columns */
+  align-items: start; /* Align items to the start of their grid cell */
 }
 
 .footer-column h4 {
-  font-size: 1.1rem;
+  /* e.g., LOCATION, LEARN MORE */
+  font-size: 0.8rem; /* Slightly smaller: approx 12.8px if root 16px. Was 0.875rem */
   color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 25px; /* Space below main titles */
+  text-transform: uppercase;
+  font-weight: 500; /* Medium weight for titles */
+  letter-spacing: 0.05em; /* Slight letter spacing for titles */
 }
 
 .footer-column h5 {
-  font-size: 1rem;
+  /* e.g., Ferntree Gully */
+  font-size: 1rem; /* Approx 16px, bolder and slightly larger */
   color: #fff;
   margin-bottom: 8px;
+  font-weight: bold; /* Figma: Location names are bold */
 }
 
-.footer-column p,
+.footer-column p {
+  /* Base styling for paragraphs in footer columns */
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.7;
+  /* display: block; by default, but ensure no inline override */
+}
+
 .footer-column ul li a {
-  font-size: 0.95rem;
-  color: #aaa;
-  line-height: 1.8;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.7;
+  text-decoration: none;
+  display: inline-flex; /* Only for links with icons */
+  align-items: center;
+}
+
+.footer-column ul li a .external-link-icon {
+  margin-left: 0.3em; /* Space between text and icon */
+  font-size: 0.9em; /* Slightly smaller icon */
+  line-height: 1; /* Ensure it doesn't affect line height of link */
 }
 
 .footer-column ul li {
-  margin-bottom: 8px;
+  margin-bottom: 12px; /* Increased space between list items */
 }
 
 .footer-column ul li a:hover {
   color: #fff;
-  text-decoration: underline;
+  /* text-decoration: underline; */ /* Optional: Add underline on hover if desired */
 }
 
-.location {
-  margin-bottom: 20px;
+.footer-column.location-info p {
+  margin-bottom: 4px; /* Tighter spacing for address lines, hours etc. */
+}
+
+.locations-container {
+  /* New rule for the wrapper */
+  display: flex;
+  flex-direction: column; /* Mobile-first: stack locations vertically */
+  gap: 30px; /* Space between location blocks on mobile */
+}
+
+.footer-column .location {
+  /* Wrapper for each location's details */
+  /* margin-bottom: 30px; */ /* Removed, gap on parent now handles this */
+}
+.footer-column .location:last-child {
+  margin-bottom: 0;
+}
+
+.footer-column:first-child {
+  /* Targets location-info effectively */
+  margin-top: 0; /* No double margin for the very first column */
+}
+
+/* Remove border from columns that might not need it based on visual grouping if any */
+/* For now, all columns get a top border as per design structure */
+
+/* Responsive Styles for Footer Grid */
+@media (min-width: 768px) {
+  .footer-grid {
+    /* Define 3 columns for the row after location-info: learn-more | other-links | newsletter */
+    grid-template-columns: 1fr 1fr 1.5fr; /* Adjust fr units as needed */
+    gap: 45px; /* Increased gap for more space between columns */
+  }
+  .footer-column.location-info {
+    grid-column: 1 / -1; /* Make location-info span full width */
+  }
+  /* .learn-more-column, .other-links-column, .newsletter will take the 3 columns */
+
+  .footer-column.other-links-column {
+    /* To align with the UL below "LEARN MORE" H4 */
+    /* H4 font-size: 0.8rem, margin-bottom: 25px. */
+    /* Approximate height of H4 (e.g., 0.8rem * 1.2 line-height = 0.96rem) + 25px margin */
+    /* Let's assume base font 16px: 0.96rem = ~15px. So, 15px + 25px = 40px */
+    /* The default padding-top for .footer-column is 25px. */
+    /* So we need an additional ~15px. Or, set total padding-top to match H4 space. */
+    padding-top: calc(
+      25px + 0.8rem * 1.2 + 25px
+    ); /* border-padding + h4_approx_height + h4_margin_bottom */
+    /* This might be too much if the 25px from .footer-column already includes the border space */
+    /* Simpler: padding-top of .footer-column is 25px. H4 margin-bottom is 25px. H4 height ~0.8rem */
+    /* Target padding-top for other-links-column to be main_padding + H4_height + H4_margin-bottom */
+  }
+
+  .footer-column.other-links-column ul {
+    margin-top: 0; /* Remove any default top margin on the ul itself */
+  }
+
+  .footer-column {
+    margin-top: 0; /* Reset mobile margin-top for grid layout */
+    /* padding-top and border-top are already set */
+  }
+  /* Individual .footer-column elements will still have their margin-top applied from the base style,
+     but :first-child (.location-info) has margin-top: 0. 
+     We need to ensure proper vertical spacing between the full-width rows and the final row.
+     The existing margin-top on .learn-more, .quick-links, .newsletter should handle this.
+  */
+
+  .locations-container {
+    /* Adjust for tablet and desktop */
+    flex-direction: row; /* Horizontal layout for locations */
+    justify-content: space-between; /* Distribute space between locations */
+    gap: 20px; /* Adjust gap between horizontal location blocks */
+  }
+  .footer-column .location {
+    /* flex-basis: 30%; */ /* Removing specific basis, let space-between and gap handle it */
+    flex-grow: 1; /* Allow them to grow if space allows */
+    flex-basis: 0; /* Distribute space more evenly */
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    /* Refine 3-column proportions for desktop */
+    grid-template-columns: 1.2fr 1.2fr 1.5fr; /* learn-more | other-links | newsletter */
+    gap: 60px; /* Further increased gap for desktop */
+  }
+  .footer-column.location-info {
+    grid-column: 1 / -1; /* Make location-info span full width */
+  }
+  .footer-column.other-links-column {
+    /* Ensure padding is consistent or specifically set for desktop too if needed */
+    /* The rule from 768px will apply, recalculate if base font changes significantly */
+    padding-top: calc(25px + 0.8rem * 1.2 + 25px);
+  }
+  /* .learn-more-column, .other-links-column, .newsletter take the columns */
+
+  .locations-container {
+    gap: 30px; /* Slightly larger gap for desktop if needed */
+  }
+  .footer-column .location {
+    /* Styles from 768px apply, can make more specific adjustments if needed */
+  }
+}
+
+.newsletter {
+  position: relative; /* For potential absolute positioning of button or borders */
+}
+
+.newsletter form {
+  display: flex;
+  border: 1px solid #bbb; /* Figma: Outer border for the whole box, light gray */
+  /* gap: 8px; */ /* Removed gap for seamless join */
+}
+
+.newsletter .email-input-wrapper {
+  position: relative; /* For positioning the label */
+  flex-grow: 1; /* Allow wrapper to take space like input did */
+  /* Ensure the wrapper itself stretches if needed, though flex row should handle this */
+  align-self: stretch;
 }
 
 .newsletter input[type="email"] {
-  width: calc(100% - 90px); /* Adjust based on button width */
-  padding: 12px;
-  border: 1px solid #555;
-  background-color: #333;
+  width: 100%;
+  height: 100%; /* Make input fill wrapper vertically */
+  padding: 18px 15px 6px 15px;
+  border: none;
+  background-color: #000;
   color: #fff;
-  border-radius: 4px 0 0 4px;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
+
+/* Remove old placeholder style */
+/*
+.newsletter input[type="email"]::placeholder {
+  color: #aaa; 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px; 
+}
+*/
+
+.newsletter .email-field-label {
+  position: absolute;
+  top: 5px; /* Adjust as needed for vertical alignment */
+  left: 15px; /* Match input's left padding */
+  font-size: 10px;
+  color: #aaa;
+  pointer-events: none; /* So clicks pass through to the input */
+  transition: all 0.2s ease-out; /* For potential future animations */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Optional: Style for when input has focus or value (A24 style) - can implement later if requested */
+/*
+.newsletter input[type="email"]:focus + .email-field-label,
+.newsletter input[type="email"]:not(:placeholder-shown) + .email-field-label { 
+  top: 2px; 
+  font-size: 8px; 
+  color: #777; 
+}
+*/
 
 .newsletter button[type="submit"] {
   padding: 12px 20px;
-  background-color: #555;
-  color: #fff;
-  border: 1px solid #555;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-  font-size: 1rem;
+  background-color: #fff; /* Figma: White background */
+  color: #000; /* Figma: Black text */
+  border: none;
+  border-left: 1px solid #bbb;
+  font-size: 0.875rem;
   font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out; /* Added color to transition */
 }
 
 .newsletter button[type="submit"]:hover {
-  background-color: #666;
+  background-color: #111; /* Slight change on hover */
+  color: #fff; /* Text becomes white on hover */
+}
+
+/* Horizontal lines - to be added precisely based on HTML structure */
+.footer-column {
+  padding-top: 25px; /* Increased padding for space above content, below line */
+  margin-top: 25px; /* Space for the border to sit in */
+  border-top: 1px solid #555; /* Figma: Horizontal lines for most columns */
+}
+
+.footer-column:first-child {
+  /* Targets location-info effectively */
+  margin-top: 0; /* No double margin for the very first column */
+}
+
+/* Responsive Styles for Footer Grid (example) */
+@media (min-width: 768px) {
+  .footer-grid {
+    /* Example: 2fr 1fr 1fr 1.5fr for Location | Learn More | Quick Links | Newsletter */
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 30px; /* Adjust gap for tablet/desktop */
+  }
+  .footer-column:first-child {
+    /* Reset any specific mobile styling if needed */
+    margin-top: 0;
+    padding-top: 20px; /* Standard padding */
+    border-top: 1px solid #555; /* Standard border */
+  }
+  /* Add a specific class or ::before for the very top thick white line */
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    /* Example: 2.5fr 1fr 1fr 2fr */
+    grid-template-columns: 2.5fr 1fr 1fr 2fr;
+    gap: 40px;
+  }
 }
 
 /* Responsive Styles */

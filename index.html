@@ -237,51 +237,89 @@
       <div class="container footer-grid">
         <div class="footer-column location-info">
           <h4>LOCATION</h4>
-          <div class="location">
-            <h5>Ferntree Gully</h5>
-            <p>8/1821 Ferntree Gully Road</p>
-            <p>Weekdays - 11am to 10pm</p>
-            <p>Weekends - 9am to 8pm</p>
-            <p>(03) 8719 6444</p>
-          </div>
-          <div class="location">
-            <h5>Clayton South</h5>
-            <p>14/186 Princes Hwy</p>
-            <!-- Placeholder, adjust as needed -->
-            <p>Weekdays - 9am to 10pm</p>
-            <p>Early Bird - Thursdays 6am</p>
-            <p>Weekends - 9am to 8pm</p>
-            <p>(03) 8797 3448</p>
-          </div>
-          <div class="location">
-            <h5>Brunswick</h5>
-            <p>260-266 Barkly Street</p>
-            <p>Monday, Wednesday and Friday - 9am to 10pm</p>
-            <p>Tuesday and Thursday - 6am to 10pm</p>
-            <p>Saturday and Sunday - 9am to 10pm</p>
-            <p>Weekends - 9am to 8pm</p>
-            <p>(03) 9304 4540</p>
+          <div class="locations-container">
+            <div class="location">
+              <h5>Ferntree Gully</h5>
+              <p>8/1821 Ferntree Gully Road</p>
+              <p>Weekdays - 11am to 10pm</p>
+              <p>Early bird - Tuesdays 6am</p>
+              <p>Weekends - 10am - 8pm</p>
+              <p>(03) 8719 6444</p>
+            </div>
+            <div class="location">
+              <h5>Clayton South</h5>
+              <p>1418a Centre Rd</p>
+              <p>Weekdays - 9am to 10pm</p>
+              <p>Early bird - Thursdays 6am</p>
+              <p>Weekends - 8am - 8pm</p>
+              <p>(03) 8797 3448</p>
+            </div>
+            <div class="location">
+              <h5>Brunswick</h5>
+              <p>260-266 Barkly Street</p>
+              <p>Monday, Wednesday and Friday - 6am to 10pm</p>
+              <p>Tuesday and Thursday - 9am to 10pm</p>
+              <p>Weekends - 8am - 8pm</p>
+              <p>(03) 9304 4540</p>
+            </div>
           </div>
         </div>
-        <div class="footer-column learn-more">
+
+        <div class="footer-column learn-more-column">
           <h4>LEARN MORE</h4>
           <ul>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">CLASSES</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">FIRST TIME</a></li>
+            <li>
+              <a href="#"
+                >ABOUT US <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >CLASSES <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >FAQ <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >FIRST TIME <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
           </ul>
         </div>
-        <div class="footer-column quick-links">
+
+        <div class="footer-column other-links-column">
+          <!-- No H4 here -->
           <ul>
-            <li><a href="#">GALLERY</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">MEMBERSHIP</a></li>
+            <li>
+              <a href="#"
+                >GALLERY <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >LOCATION <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >MEMBERSHIP <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
           </ul>
         </div>
+
         <div class="footer-column newsletter">
           <form>
-            <input type="email" placeholder="Email" />
+            <div class="email-input-wrapper">
+              <input type="email" id="footer_email_input" name="email" />
+              <label for="footer_email_input" class="email-field-label"
+                >EMAIL</label
+              >
+            </div>
             <button type="submit">Sign Up</button>
           </form>
         </div>
