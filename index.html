@@ -104,7 +104,11 @@
     <main>
       <section class="breadcrumbs">
         <div class="container">
-          <p><a href="#">HOME</a> / MEMBERSHIPS</p>
+          <p class="breadcrumb-nav">
+            <a href="#" class="breadcrumb-link">HOME</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">MEMBERSHIPS</span>
+          </p>
         </div>
       </section>
 
@@ -161,7 +165,11 @@
             </a>
 
             <!-- Product Card 3: 6 Month Membership -->
-            <div class="product-card" data-category="monthly">
+            <div
+              class="product-card"
+              data-category="monthly"
+              data-page="6-month.html"
+            >
               <div class="product-image-container">
                 <img
                   src="Images/Card3-6Month.png"
@@ -181,7 +189,11 @@
             </div>
 
             <!-- Product Card 4: 12 Month Membership -->
-            <div class="product-card" data-category="monthly">
+            <div
+              class="product-card"
+              data-category="monthly"
+              data-page="12-month.html"
+            >
               <div class="product-image-container">
                 <img
                   src="Images/Card4-12Month.png"
@@ -201,7 +213,11 @@
             </div>
 
             <!-- Product Card 5: Annual Prepaid - Regular -->
-            <div class="product-card" data-category="yearly">
+            <div
+              class="product-card"
+              data-category="yearly"
+              data-page="annual-regular.html"
+            >
               <div class="product-image-container">
                 <img
                   src="Images/Card5-Annual-Regular.png"
@@ -222,7 +238,11 @@
             </div>
 
             <!-- Product Card 6: Annual Prepaid - Family -->
-            <div class="product-card" data-category="yearly">
+            <div
+              class="product-card"
+              data-category="yearly"
+              data-page="annual-family.html"
+            >
               <div class="product-image-container">
                 <img
                   src="Images/Card6-Annual-Family.png"
@@ -455,5 +475,26 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // Product card navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const productCards = document.querySelectorAll(
+          ".product-card[data-page]"
+        );
+
+        productCards.forEach(function (card) {
+          card.addEventListener("click", function () {
+            const targetPage = this.getAttribute("data-page");
+            if (targetPage) {
+              window.location.href = targetPage;
+            }
+          });
+
+          // Add cursor pointer to indicate clickable
+          card.style.cursor = "pointer";
+        });
+      });
+    </script>
   </body>
 </html>

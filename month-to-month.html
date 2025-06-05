@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="product.css" />
-    <link rel="stylesheet" href="vinyl-effect.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -90,9 +89,12 @@
     <main>
       <section class="breadcrumbs">
         <div class="container">
-          <p>
-            <a href="index.html">HOME</a> /
-            <a href="index.html">MEMBERSHIPS</a> / MONTH
+          <p class="breadcrumb-nav">
+            <a href="index.html" class="breadcrumb-link">HOME</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="index.html" class="breadcrumb-link">MEMBERSHIPS</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">MONTH</span>
           </p>
         </div>
       </section>
@@ -172,9 +174,23 @@
                 <div class="option-group">
                   <label class="option-label">QUANTITY</label>
                   <div class="quantity-controls">
-                    <button class="quantity-btn">-</button>
-                    <span class="quantity-value">1</span>
-                    <button class="quantity-btn">+</button>
+                    <button class="quantity-btn minus-btn">
+                      <img
+                        src="Images/minus.png"
+                        alt="Decrease"
+                        class="quantity-icon"
+                      />
+                    </button>
+                    <div class="quantity-box">
+                      <span class="quantity-value">1</span>
+                    </div>
+                    <button class="quantity-btn plus-btn">
+                      <img
+                        src="Images/plus.png"
+                        alt="Increase"
+                        class="quantity-icon"
+                      />
+                    </button>
                   </div>
                 </div>
 
@@ -255,20 +271,12 @@
 
             <!-- Right Column: Image and Circular Text -->
             <div class="product-visual-column">
-              <div
-                class="product-image-container album"
-                data-cover-url="Images/Product1-image.png"
-              >
-                <div class="cover">
-                  <img
-                    src="Images/Product1-image.png"
-                    alt="Month to Month Membership"
-                    class="product-main-image"
-                  />
-                </div>
-                <div class="vinyl">
-                  <div class="vinyl-cover"></div>
-                </div>
+              <div class="product-image-container">
+                <img
+                  src="Images/Product1-image.png"
+                  alt="Month to Month Membership"
+                  class="product-main-image"
+                />
               </div>
             </div>
           </div>
@@ -370,7 +378,6 @@
     </footer>
     <script src="script.js"></script>
     <script src="menu.js"></script>
-    <script src="vinyl-effect.js"></script>
     <script>
       // Location Dropdown Functionality
       document.addEventListener("DOMContentLoaded", function () {
@@ -386,19 +393,21 @@
           locationArrow.classList.toggle("rotated");
         });
 
-        // Handle option selection
-        const options = document.querySelectorAll(".location-option");
-        options.forEach((option) => {
+        // Select location option
+        const locationOptionElements =
+          document.querySelectorAll(".location-option");
+        locationOptionElements.forEach(function (option) {
           option.addEventListener("click", function () {
+            const selectedLocation = this.getAttribute("data-location");
+            selectedLocationSpan.textContent = selectedLocation;
+
             // Remove active class from all options
-            options.forEach((opt) => opt.classList.remove("active"));
+            locationOptionElements.forEach(function (opt) {
+              opt.classList.remove("active");
+            });
 
             // Add active class to selected option
             this.classList.add("active");
-
-            // Update the selected location text
-            selectedLocationSpan.textContent =
-              this.getAttribute("data-location");
 
             // Close dropdown
             locationOptions.classList.remove("open");
@@ -408,10 +417,54 @@
 
         // Close dropdown when clicking outside
         document.addEventListener("click", function (event) {
-          if (!event.target.closest(".location-dropdown")) {
+          if (!locationSelected.contains(event.target)) {
             locationOptions.classList.remove("open");
             locationArrow.classList.remove("rotated");
           }
+        });
+
+        // Quantity Controls
+        const minusBtn = document.querySelector(".minus-btn");
+        const plusBtn = document.querySelector(".plus-btn");
+        const quantityValue = document.querySelector(".quantity-value");
+
+        minusBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityValue.textContent);
+          if (currentValue > 1) {
+            quantityValue.textContent = currentValue - 1;
+          }
+        });
+
+        plusBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityValue.textContent);
+          quantityValue.textContent = currentValue + 1;
+        });
+
+        // Month options functionality with navigation
+        const monthOptions = document.querySelectorAll(".option-value");
+        monthOptions.forEach(function (option) {
+          option.addEventListener("click", function () {
+            const monthValue = this.textContent.trim();
+
+            // Navigate to appropriate page based on month value
+            if (monthValue === "1") {
+              window.location.href = "month-to-month.html";
+            } else if (monthValue === "6") {
+              window.location.href = "6-month.html";
+            } else if (monthValue === "12") {
+              window.location.href = "12-month.html";
+            }
+
+            // Remove active class from all month options
+            monthOptions.forEach(function (opt) {
+              opt.classList.remove("active");
+              opt.classList.add("inactive");
+            });
+
+            // Add active class to clicked option
+            this.classList.add("active");
+            this.classList.remove("inactive");
+          });
         });
       });
     </script>

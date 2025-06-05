@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annual Prepaid - Family - Boulder Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="year.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Add Helvetica Neue font (fallback to system fonts) -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+      /* Helvetica Neue fallback styles */
+      body {
+        font-family: "Helvetica Neue", Inter, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-brand-bar">
+      <div class="container">
+        <p class="site-brand-title">BOULDER LAB</p>
+      </div>
+    </div>
+    <div class="ticker-wrapper">
+      <div class="ticker" id="ticker">
+        <span>WELCOME TO BOULDER LAB</span>
+        <span>•</span>
+        <span>FIRST TIME VISITING?</span>
+        <span>•</span>
+        <span>CLICK HERE FOR EVERYTHING YOU NEED TO KNOW</span>
+        <span>•</span>
+        <span>WHAT TO BRING, HOW TO BOOK, AND MORE</span>
+        <span>•</span>
+        <span>NEED HELP? ASK OUR FRONT DESK ANYTIME</span>
+        <span>•</span>
+        <span>BOULDERING MADE SIMPLE FOR FIRST-TIMERS</span>
+        <span>•</span>
+        <span>GET STARTED — YOUR CLIMBING JOURNEY BEGINS HERE</span>
+        <span>•</span>
+      </div>
+      <button
+        class="pause-btn"
+        id="pauseBtn"
+        aria-label="Pause banner"
+        aria-pressed="false"
+      >
+        ❚❚
+      </button>
+    </div>
+    <header>
+      <div class="container header-container">
+        <div class="header-left-section">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <img src="Images/Menu.png" alt="Menu" class="hamburger-icon-img" />
+          </button>
+          <div class="logo">
+            <img src="Images/boulder_logo.png" alt="Boulder Lab Logo" />
+          </div>
+        </div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="index.html">MEMBERSHIPS</a></li>
+            <li><a href="#">FIRST TIME</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn">
+            <img src="Images/Search.png" alt="Search" class="search-icon-img" />
+            SEARCH
+          </button>
+          <button class="cart-btn">
+            <img src="Images/Cart.png" alt="Cart" class="cart-icon-img" />
+            <span class="cart-count">00</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="breadcrumbs">
+        <div class="container">
+          <p class="breadcrumb-nav">
+            <a href="index.html" class="breadcrumb-link">HOME</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="index.html" class="breadcrumb-link">MEMBERSHIPS</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">FAMILY</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="product-page">
+        <div class="container">
+          <div class="product-layout">
+            <!-- Left Column: Product Info -->
+            <div class="product-info-column">
+              <p class="product-availability">AVAILABLE IN ALL LOCATIONS</p>
+
+              <h1 class="product-title">Annual Prepaid - Family</h1>
+
+              <div class="pricing-section">
+                <div class="main-price">$26.50p/w</div>
+                <div class="best-value">BEST VALUE</div>
+                <div class="price-separator">|</div>
+                <p class="savings-text">
+                  Interested in an individual annual pass?<br />
+                  <span
+                    class="find-out-more-link"
+                    data-target="annual-regular.html"
+                    >Find out more→</span
+                  >
+                </p>
+              </div>
+
+              <div class="action-buttons">
+                <button class="more-details-btn positioned-more-details-left">
+                  MORE DETAILS
+                </button>
+                <button class="more-details-btn positioned-more-details">
+                  MORE DETAILS
+                </button>
+              </div>
+
+              <div class="product-options">
+                <div class="option-group">
+                  <label class="option-label">PLAN</label>
+                  <div class="plan-dropdown">
+                    <div class="plan-selected" id="planSelected">
+                      <span class="selected-plan">FAMILY</span>
+                      <img
+                        src="Images/arrow.png"
+                        alt="Dropdown"
+                        class="plan-arrow"
+                        id="planArrow"
+                      />
+                    </div>
+                    <div class="plan-options" id="planOptions">
+                      <div class="plan-option" data-plan="REGULAR">REGULAR</div>
+                      <div class="plan-option active" data-plan="FAMILY">
+                        FAMILY
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="option-group">
+                  <label class="option-label">LOCATION</label>
+                  <div class="location-dropdown">
+                    <div class="location-selected" id="locationSelected">
+                      <span class="selected-location">BRUNSWICK</span>
+                      <img
+                        src="Images/arrow.png"
+                        alt="Dropdown"
+                        class="location-arrow"
+                        id="locationArrow"
+                      />
+                    </div>
+                    <div class="location-options" id="locationOptions">
+                      <div
+                        class="location-option active"
+                        data-location="BRUNSWICK"
+                      >
+                        BRUNSWICK
+                      </div>
+                      <div
+                        class="location-option"
+                        data-location="CLAYTON SOUTH"
+                      >
+                        CLAYTON SOUTH
+                      </div>
+                      <div
+                        class="location-option"
+                        data-location="FERNTREE GULLY"
+                      >
+                        FERNTREE GULLY
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="option-group">
+                  <label class="option-label">QUANTITY</label>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn minus-btn">
+                      <img
+                        src="Images/minus.png"
+                        alt="Decrease"
+                        class="quantity-icon"
+                      />
+                    </button>
+                    <div class="quantity-box">
+                      <span class="quantity-value">1</span>
+                    </div>
+                    <button class="quantity-btn plus-btn">
+                      <img
+                        src="Images/plus.png"
+                        alt="Increase"
+                        class="quantity-icon"
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                <button class="add-to-cart-btn">ADD TO CART</button>
+              </div>
+
+              <!-- Circular Text Animation -->
+              <div class="product-circular-text">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:lang="en"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 500 500"
+                >
+                  <defs>
+                    <path
+                      d="m250,400a150,150 0 1,1 0,-300a150,150 0 1,1 0,300Z"
+                      id="textcircle"
+                    />
+                  </defs>
+                  <text font-weight="900" font-size="22">
+                    <textPath
+                      href="#textcircle"
+                      aria-label="GOT MORE QUESTIONS? // GOT MORE QUESTIONS? //"
+                      textLength="942"
+                    >
+                      GOT MORE QUESTIONS? // GOT MORE QUESTIONS? //
+                    </textPath>
+                  </text>
+                  <text
+                    class="product-center-text"
+                    x="250"
+                    y="250"
+                    font-size="32"
+                    font-weight="bold"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                  >
+                    EMAIL
+                  </text>
+                </svg>
+              </div>
+
+              <div class="product-details">
+                <div class="descriptions-section">
+                  <h3 class="section-title">DESCRIPTIONS</h3>
+                  <p class="description-text">
+                    Our annual prepaid family is for maximum TWO adults, and all
+                    additions must be minors. It is the best value for money for
+                    those families who all share a passion for climbing.
+                  </p>
+                  <p class="description-text cancellation">
+                    There is no sign up fee, no freeze fee, and it includes all
+                    the other perks of memberships.
+                    <span class="family-address"
+                      >**This is for families who are at the same address.</span
+                    >
+                  </p>
+                  <p class="description-text cancellation">
+                    **For those interested in Annual Prepaid as an individual or
+                    another group please see
+                    <a
+                      href="annual-regular.html"
+                      style="color: #2b00ff; text-decoration: underline"
+                      >Annual Prepaid - Regular</a
+                    >
+                  </p>
+                </div>
+
+                <div class="benefits-section">
+                  <h3 class="section-title">BENEFITS</h3>
+                  <ul class="benefits-list">
+                    <li>
+                      Unlimited climbing at all of our venues in Ferntree Gully,
+                      Clayton and now Brunswick!
+                    </li>
+                    <li>
+                      Using your monthly guest pass you can bring a friend for
+                      free every month
+                    </li>
+                    <li>Members receive 10% off the Boulder lab gear store</li>
+                    <li>Discounted members pricing for any of our classes</li>
+                    <li>Special member's pricing for all Boulder Lab events</li>
+                    <li>
+                      Members receive 10% off our in-house Physiotherapy
+                      services
+                    </li>
+                    <li>
+                      All of our membership options can be frozen if you're
+                      heading away or can't climb for any reason
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Product Image -->
+            <div class="product-visual-column">
+              <div class="product-image-container">
+                <img
+                  src="Images/Product-image-annual-family.png"
+                  alt="Annual Prepaid Family Membership"
+                  class="product-main-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-column location-info">
+          <h4>LOCATION</h4>
+          <div class="locations-container">
+            <div class="location">
+              <h5>Ferntree Gully</h5>
+              <p>8/1821 Ferntree Gully Road</p>
+              <p>Weekdays - 11am to 10pm</p>
+              <p>Early bird - Tuesdays 6am</p>
+              <p>Weekends - 10am - 8pm</p>
+              <p>(03) 8719 6444</p>
+            </div>
+            <div class="location">
+              <h5>Clayton South</h5>
+              <p>1418a Centre Rd</p>
+              <p>Weekdays - 9am to 10pm</p>
+              <p>Early bird - Thursdays 6am</p>
+              <p>Weekends - 8am - 8pm</p>
+              <p>(03) 8797 3448</p>
+            </div>
+            <div class="location">
+              <h5>Brunswick</h5>
+              <p>260-266 Barkly Street</p>
+              <p>Monday, Wednesday and Friday - 6am to 10pm</p>
+              <p>Tuesday and Thursday - 9am to 10pm</p>
+              <p>Weekends - 8am - 8pm</p>
+              <p>(03) 9304 4540</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-column learn-more-column">
+          <h4>LEARN MORE</h4>
+          <ul>
+            <li>
+              <a href="#"
+                >ABOUT US <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >CLASSES <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >FAQ <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >FIRST TIME <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column other-links-column">
+          <!-- No H4 here -->
+          <ul>
+            <li>
+              <a href="#"
+                >GALLERY <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >LOCATION <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >MEMBERSHIP <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column newsletter">
+          <form>
+            <div class="email-input-wrapper">
+              <input type="email" id="footer_email_input" name="email" />
+              <label for="footer_email_input" class="email-field-label"
+                >EMAIL</label
+              >
+            </div>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script>
+      // Plan dropdown functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const planSelected = document.getElementById("planSelected");
+        const planArrow = document.getElementById("planArrow");
+        const planOptions = document.getElementById("planOptions");
+        const planOptionElements = document.querySelectorAll(".plan-option");
+
+        planSelected.addEventListener("click", function () {
+          planOptions.classList.toggle("open");
+          planArrow.classList.toggle("rotated");
+        });
+
+        planOptionElements.forEach((option) => {
+          option.addEventListener("click", function () {
+            const selectedPlan = this.getAttribute("data-plan");
+            document.querySelector(".selected-plan").textContent = selectedPlan;
+
+            // Navigate to the appropriate page
+            if (selectedPlan === "REGULAR") {
+              window.location.href = "annual-regular.html";
+            } else if (selectedPlan === "FAMILY") {
+              window.location.href = "annual-family.html";
+            }
+
+            planOptions.classList.remove("open");
+            planArrow.classList.remove("rotated");
+
+            // Update active state
+            planOptionElements.forEach((opt) => opt.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!planSelected.contains(e.target)) {
+            planOptions.classList.remove("open");
+            planArrow.classList.remove("rotated");
+          }
+        });
+
+        // Location dropdown functionality (same as other pages)
+        const locationSelected = document.getElementById("locationSelected");
+        const locationArrow = document.getElementById("locationArrow");
+        const locationOptions = document.getElementById("locationOptions");
+        const locationOptionElements =
+          document.querySelectorAll(".location-option");
+
+        locationSelected.addEventListener("click", function () {
+          locationOptions.classList.toggle("open");
+          locationArrow.classList.toggle("rotated");
+        });
+
+        locationOptionElements.forEach((option) => {
+          option.addEventListener("click", function () {
+            const selectedLocation = this.getAttribute("data-location");
+            document.querySelector(".selected-location").textContent =
+              selectedLocation;
+
+            locationOptions.classList.remove("open");
+            locationArrow.classList.remove("rotated");
+
+            locationOptionElements.forEach((opt) =>
+              opt.classList.remove("active")
+            );
+            this.classList.add("active");
+          });
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!locationSelected.contains(e.target)) {
+            locationOptions.classList.remove("open");
+            locationArrow.classList.remove("rotated");
+          }
+        });
+
+        // Quantity controls
+        const minusBtn = document.querySelector(".minus-btn");
+        const plusBtn = document.querySelector(".plus-btn");
+        const quantityValue = document.querySelector(".quantity-value");
+
+        minusBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityValue.textContent);
+          if (currentValue > 1) {
+            quantityValue.textContent = currentValue - 1;
+          }
+        });
+
+        plusBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityValue.textContent);
+          quantityValue.textContent = currentValue + 1;
+        });
+
+        // Find out more link functionality
+        const findOutMoreLink = document.querySelector(".find-out-more-link");
+        if (findOutMoreLink) {
+          findOutMoreLink.addEventListener("click", function () {
+            const targetPage = this.getAttribute("data-target");
+            if (targetPage) {
+              window.location.href = targetPage;
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

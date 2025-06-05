@@ -1,5 +1,38 @@
 /* Product Page Specific Styles */
 
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.breadcrumb-link {
+  color: #83887c;
+  text-decoration: none;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: #83887c;
+  margin: 0 8px;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.breadcrumb-current {
+  color: #000;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .product-page {
   padding: 40px 0;
 }
@@ -105,10 +138,9 @@
 }
 
 .action-buttons {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
-  margin-top: 10px;
+  position: static;
+  display: block;
+  margin: 0;
 }
 
 /* 6. More details - Helvetica Neue/Bold/font size 8 */
@@ -136,14 +168,14 @@
 .positioned-more-details {
   position: absolute;
   left: 618px;
-  top: 840px;
+  top: 820px;
 }
 
 /* Left MORE DETAILS button positioned above MONTH(S) section */
 .positioned-more-details-left {
   position: absolute;
   left: 295px;
-  top: 840px;
+  top: 820px;
 }
 
 /* Right Column: Image and Circular Text */
@@ -156,17 +188,19 @@
 }
 
 .product-image-container {
-  width: 375px;
-  height: 483.03px;
+  max-width: 375px;
+  height: 483px;
   position: relative;
   margin-left: 0;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .product-main-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 10px;
 }
 
@@ -315,7 +349,6 @@
 .quantity-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
   position: absolute;
   top: 28px;
   left: 0;
@@ -323,15 +356,35 @@
 
 .quantity-btn {
   background: none;
-  border: 1px solid #ccc;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  padding: 0;
+}
+
+.quantity-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.minus-btn {
+  margin-right: 23px;
+}
+
+.plus-btn {
+  margin-left: 23px;
+}
+
+.quantity-box {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
 }
 
 .quantity-value {
@@ -340,6 +393,7 @@
   font-size: 19px;
   line-height: 22.3px;
   letter-spacing: -0.56px;
+  color: #000;
 }
 
 /* 13. ADD TO CART - Updated with exact Figma specifications and positioned in options row */
