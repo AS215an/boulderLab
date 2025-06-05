@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memberships - Boulder Lab</title>
+    <title>Month to Month Membership - Boulder Lab</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="product.css" />
+    <link rel="stylesheet" href="vinyl-effect.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +16,7 @@
     />
     <!-- Add Helvetica Neue font (fallback to system fonts) -->
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
       /* Helvetica Neue fallback styles */
       body {
         font-family: "Helvetica Neue", Inter, -apple-system, BlinkMacSystemFont,
@@ -44,22 +46,6 @@
         <span>•</span>
         <span>GET STARTED — YOUR CLIMBING JOURNEY BEGINS HERE</span>
         <span>•</span>
-        <span>WELCOME TO BOULDER LAB</span>
-        <span>•</span>
-        <span>FIRST TIME VISITING?</span>
-        <span>•</span>
-        <span>CLICK HERE FOR EVERYTHING YOU NEED TO KNOW</span>
-        <span>•</span>
-        <span>WHAT TO BRING, HOW TO BOOK, AND MORE</span>
-        <span>•</span>
-        <span>NEED HELP? ASK OUR FRONT DESK ANYTIME</span>
-        <span>•</span>
-        <span>BOULDERING MADE SIMPLE FOR FIRST-TIMERS</span>
-        <span>•</span>
-        <span>GET STARTED — YOUR CLIMBING JOURNEY BEGINS HERE</span>
-        <span>•</span>
-        <span>WELCOME TO BOULDER LAB</span>
-        <span>•</span>
       </div>
       <button
         class="pause-btn"
@@ -83,7 +69,7 @@
         <nav class="mobile-nav">
           <ul>
             <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">MEMBERSHIPS</a></li>
+            <li><a href="index.html">MEMBERSHIPS</a></li>
             <li><a href="#">FIRST TIME</a></li>
             <li><a href="#">FAQs</a></li>
           </ul>
@@ -104,140 +90,157 @@
     <main>
       <section class="breadcrumbs">
         <div class="container">
-          <p><a href="#">HOME</a> / MEMBERSHIPS</p>
+          <p>
+            <a href="index.html">HOME</a> /
+            <a href="index.html">MEMBERSHIPS</a> / MONTH
+          </p>
         </div>
       </section>
 
-      <section class="memberships-page" id="memberships-section">
+      <section class="product-page">
         <div class="container">
-          <h1>MEMBERSHIPS</h1>
+          <div class="product-layout">
+            <!-- Left Column: Product Info -->
+            <div class="product-info-column">
+              <p class="product-availability">AVAILABLE IN ALL LOCATIONS</p>
 
-          <div class="filter-controls">
-            <nav class="on-filters-navbar"></nav>
-          </div>
-          <p class="results-count">6 Results</p>
+              <h1 class="product-title">Month to Month Membership</h1>
 
-          <div class="product-grid">
-            <!-- Product Card 1: 2-Week Trial -->
-            <div class="product-card" data-category="weekly">
-              <div class="product-image-container">
-                <img
-                  src="Images/Card1-2week.png"
-                  alt="2-Week Trial Membership"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">WEEK</span>
-                <h3 class="product-title title">2-Week Trial Membership</h3>
-                <p class="product-description description">
-                  Enjoy full membership perks for two weeks!
+              <div class="pricing-section">
+                <div class="main-price">$29.50p/w</div>
+                <div class="comparison-price">$26.50p/w</div>
+                <div class="price-separator">|</div>
+                <p class="savings-text">
+                  Check out our best value; annual membership? →
                 </p>
-                <p class="product-price price">$49.00</p>
               </div>
-            </div>
 
-            <!-- Product Card 2: Month to Month -->
-            <a href="month-to-month.html" class="product-card-link">
-              <div class="product-card" data-category="monthly">
-                <div class="product-image-container">
-                  <img
-                    src="Images/Card2-MonthToMonth.png"
-                    alt="Month to Month Membership"
-                    class="product-image"
-                  />
-                  <div class="card-overlay"></div>
+              <div class="action-buttons">
+                <button class="more-details-btn positioned-more-details-left">
+                  MORE DETAILS
+                </button>
+                <button class="more-details-btn positioned-more-details">
+                  MORE DETAILS
+                </button>
+              </div>
+
+              <div class="product-options">
+                <div class="option-group">
+                  <label class="option-label">MONTH(S)</label>
+                  <div class="option-values">
+                    <span class="option-value active">1</span>
+                    <span class="option-value inactive">6</span>
+                    <span class="option-value inactive">12</span>
+                  </div>
                 </div>
-                <div class="product-info">
-                  <span class="product-category label">MONTH</span>
-                  <h3 class="product-title title">Month to Month Membership</h3>
-                  <p class="product-description description">
-                    Flexible and commitment-free. Cancel anytime!
+
+                <div class="option-group">
+                  <label class="option-label">LOCATION</label>
+                  <div class="option-values">
+                    <span class="option-value active">BRUNSWICK</span>
+                  </div>
+                </div>
+
+                <div class="option-group">
+                  <label class="option-label">QUANTITY</label>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn">-</button>
+                    <span class="quantity-value">1</span>
+                    <button class="quantity-btn">+</button>
+                  </div>
+                </div>
+
+                <button class="add-to-cart-btn">ADD TO CART</button>
+              </div>
+
+              <!-- Circular Text Animation -->
+              <div class="product-circular-text">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:lang="en"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 500 500"
+                >
+                  <title>Circular Text Path</title>
+                  <defs>
+                    <path
+                      id="productTextCircle"
+                      d="M250,400
+                               a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"
+                      transform="rotate(12,250,250)"
+                    />
+                  </defs>
+                  <g class="textcircle">
+                    <text textLength="940">
+                      <textPath
+                        xlink:href="#productTextCircle"
+                        aria-label="  HAVE GOT MORE QUESTIONS? | CONTACT US! |  "
+                        textLength="940"
+                      >
+                        | HAVE GOT MORE QUESTIONS? || CONTACT US! |
+                      </textPath>
+                    </text>
+                  </g>
+                  <text x="250" y="250" class="product-center-text">EMAIL</text>
+                </svg>
+              </div>
+
+              <!-- Descriptions and Benefits -->
+              <div class="product-details">
+                <div class="descriptions-section">
+                  <h3 class="section-title">DESCRIPTIONS</h3>
+                  <p class="description-text">
+                    Our Month to Month membership is $34.50 a week (billed at
+                    $149.50 monthly) plus an initiation fee of $39.
                   </p>
-                  <p class="product-price price">$34.50</p>
+                  <p class="description-text cancellation">
+                    This membership can be canceled anytime.
+                  </p>
+                </div>
+
+                <div class="benefits-section">
+                  <h3 class="section-title">BENEFITS</h3>
+                  <ul class="benefits-list">
+                    <li>
+                      Unlimited climbing at all of our venues in Ferntree Gully,
+                      Clayton and now Brunswick!
+                    </li>
+                    <li>
+                      Using your monthly guest pass you can bring a friend for
+                      free every month
+                    </li>
+                    <li>Members receive 10% off the Boulder lab gear store</li>
+                    <li>Discounted members pricing for any of our classes</li>
+                    <li>Special member's pricing for all Boulder Lab events</li>
+                    <li>
+                      Members receive 10% off our in-house Physiotherapy
+                      services
+                    </li>
+                    <li>
+                      All of our membership options can be frozen if you're
+                      heading away or can't climb for any reason
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </a>
-
-            <!-- Product Card 3: 6 Month Membership -->
-            <div class="product-card" data-category="monthly">
-              <div class="product-image-container">
-                <img
-                  src="Images/Card3-6Month.png"
-                  alt="6 Month Membership"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">MONTH</span>
-                <h3 class="product-title title">6 Month Membership</h3>
-                <p class="product-description description">
-                  Our most popular membership!
-                </p>
-                <p class="product-price price">$29.50</p>
-              </div>
             </div>
 
-            <!-- Product Card 4: 12 Month Membership -->
-            <div class="product-card" data-category="monthly">
-              <div class="product-image-container">
-                <img
-                  src="Images/Card4-12Month.png"
-                  alt="12 Month Membership"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">MONTH</span>
-                <h3 class="product-title title">12 Month Membership</h3>
-                <p class="product-description description">
-                  Best long-term value for frequent climbers!
-                </p>
-                <p class="product-price price">$27.50</p>
-              </div>
-            </div>
-
-            <!-- Product Card 5: Annual Prepaid - Regular -->
-            <div class="product-card" data-category="yearly">
-              <div class="product-image-container">
-                <img
-                  src="Images/Card5-Annual-Regular.png"
-                  alt="Annual Prepaid - Regular"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">YEAR</span>
-                <h3 class="product-title title">Annual Prepaid - Regular</h3>
-                <p class="product-description description">
-                  The ultimate value for individuals or groups ready to commit
-                  for a year!
-                </p>
-                <p class="product-price price">$26.50</p>
-              </div>
-            </div>
-
-            <!-- Product Card 6: Annual Prepaid - Family -->
-            <div class="product-card" data-category="yearly">
-              <div class="product-image-container">
-                <img
-                  src="Images/Card6-Annual-Family.png"
-                  alt="Annual Prepaid - Family"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">YEAR</span>
-                <h3 class="product-title title">Annual Prepaid - Family</h3>
-                <p class="product-description description">
-                  Perfect for families: two adults max, minors included!
-                </p>
-                <p class="product-price price">$26.50</p>
+            <!-- Right Column: Image and Circular Text -->
+            <div class="product-visual-column">
+              <div
+                class="product-image-container album"
+                data-cover-url="Images/Product1-image.png"
+              >
+                <div class="cover">
+                  <img
+                    src="Images/Product1-image.png"
+                    alt="Month to Month Membership"
+                    class="product-main-image"
+                  />
+                </div>
+                <div class="vinyl">
+                  <div class="vinyl-cover"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -339,6 +342,7 @@
     </footer>
     <script src="script.js"></script>
     <script src="menu.js"></script>
+    <script src="vinyl-effect.js"></script>
 
     <!-- Full-screen Menu -->
     <div class="full-screen-menu" id="fullScreenMenu">
@@ -381,7 +385,7 @@
           <div class="menu-column">
             <h4>PRICING</h4>
             <ul>
-              <li><a href="#memberships-section">Memberships</a></li>
+              <li><a href="index.html#memberships-section">Memberships</a></li>
               <li><a href="#">Entry pass</a></li>
               <li><a href="#">Gear store</a></li>
             </ul>

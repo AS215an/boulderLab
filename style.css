@@ -1079,3 +1079,20 @@ footer {
 
 /* Show desktop nav on larger screens */
 /* @media (min-width: 768px) { ... } */
+
+/* Product card link styling */
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card-link:hover {
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.product-card-link:hover .product-card {
+  /* Enhance the existing card hover effect when the link is hovered */
+  transform: none; /* Remove any conflicting transforms */
+}

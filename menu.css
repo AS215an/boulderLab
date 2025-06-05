@@ -67,11 +67,21 @@
   cursor: pointer;
   padding: 5px 10px; /* Add some padding */
   transition: color 0.2s ease-in-out;
+  display: flex; /* Add flex for icon alignment */
+  align-items: center; /* Center align icon and text */
+  gap: 8px; /* Space between icon and text */
 }
 
 .menu-header-right .search-btn:hover,
 .menu-header-right .close-menu-btn:hover {
   color: #bbb; /* Slightly lighter on hover */
+}
+
+/* Style for the search icon in menu */
+.search-icon-menu {
+  width: 16px; /* Adjust size as needed */
+  height: 16px; /* Keep aspect ratio */
+  filter: invert(1); /* Make the black icon white to match the text */
 }
 
 .menu-content {
