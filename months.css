@@ -1,20 +1,18 @@
 /* Modified Product CSS for 6 Month and 12 Month pages - moves most elements down 30px */
 
-/* Breadcrumb Navigation */
-.breadcrumb-nav {
-  margin: 0;
-  padding: 20px 0;
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: 3px 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
 }
 
-.breadcrumb-link {
-  color: #83887c;
-  text-decoration: none;
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
+.breadcrumbs a {
+  color: #555;
 }
 
-.breadcrumb-link:hover {
+.breadcrumbs a:hover {
   text-decoration: underline;
 }
 
@@ -50,7 +48,7 @@
 .product-info-column {
   max-width: 500px;
   padding-right: 20px;
-  margin-top: 150px;
+  margin-top: 170px;
 }
 
 /* Available in all locations - moved down 30px */
@@ -158,17 +156,17 @@
   color: #fff;
 }
 
-/* Positioned MORE DETAILS buttons - moved down 15px */
+/* Positioned MORE DETAILS buttons - adjusted for restored normal positioning */
 .positioned-more-details {
   position: absolute;
   left: 618px;
-  top: 880px;
+  top: 795px;
 }
 
 .positioned-more-details-left {
   position: absolute;
   left: 295px;
-  top: 880px;
+  top: 795px;
 }
 
 /* Right Column: Image and Circular Text - NOT MOVED */
@@ -186,7 +184,6 @@
   position: relative;
   margin-left: 0;
   margin-right: auto;
-  margin-top: -30px;
   overflow: hidden;
 }
 
@@ -198,7 +195,7 @@
   border-radius: 10px;
 }
 
-/* Product Options - moved down 45px */
+/* Product Options - restored to normal positioning */
 .product-options {
   display: flex;
   align-items: flex-start;
@@ -206,7 +203,7 @@
   margin-bottom: 25px;
   flex-wrap: nowrap;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 20px;
 }
 
 .option-group {

@@ -99,6 +99,13 @@ class BoulderLabCart {
       );
     }
 
+    // Add global cart button click listener (only if not already bound)
+    const cartBtn = document.querySelector(".cart-btn");
+    if (cartBtn && !cartBtn.hasAttribute("data-cart-bound")) {
+      cartBtn.addEventListener("click", () => this.showCart());
+      cartBtn.setAttribute("data-cart-bound", "true");
+    }
+
     // Bind checkout button functionality
     this.bindCheckoutButton();
   }
@@ -163,8 +170,14 @@ class BoulderLabCart {
 
   // Remove item from cart
   removeItem(itemId) {
+    console.log("Removing item with ID:", itemId);
+    console.log("Cart items before removal:", this.cartItems);
+
     this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
+    console.log("Cart items after removal:", this.cartItems);
+
     this.saveCart();
+    this.updateCartCount();
     this.renderCart();
 
     if (this.cartItems.length === 0) {

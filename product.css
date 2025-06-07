@@ -1,20 +1,18 @@
 /* Product Page Specific Styles */
 
-/* Breadcrumb Navigation */
-.breadcrumb-nav {
-  margin: 0;
-  padding: 20px 0;
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: 3px 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
 }
 
-.breadcrumb-link {
-  color: #83887c;
-  text-decoration: none;
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
+.breadcrumbs a {
+  color: #555;
 }
 
-.breadcrumb-link:hover {
+.breadcrumbs a:hover {
   text-decoration: underline;
 }
 
@@ -168,14 +166,14 @@
 .positioned-more-details {
   position: absolute;
   left: 618px;
-  top: 820px;
+  top: 803px;
 }
 
 /* Left MORE DETAILS button positioned above MONTH(S) section */
 .positioned-more-details-left {
   position: absolute;
   left: 295px;
-  top: 820px;
+  top: 803px;
 }
 
 /* Right Column: Image and Circular Text */

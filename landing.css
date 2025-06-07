@@ -1,0 +1,543 @@
+/* Landing Page Specific Styles */
+
+/* Global overflow control to prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Remove gaps between sections */
+section {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+section + section {
+  margin-top: 0;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* First-time User Glass Modal */
+.first-time-modal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: 420px;
+  background: rgba(224, 224, 224, 0.49);
+  border-radius: 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
+  border: 0.65px solid rgba(224, 224, 224, 0.3);
+  padding: 20px;
+  z-index: 10;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-new-here {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #2b00ff;
+  margin: 0;
+}
+
+.modal-waiver {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000000;
+}
+
+.modal-link {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  margin: 0;
+  cursor: pointer;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000000;
+}
+
+.modal-link:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.complete-waiver-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 16px;
+  overflow: hidden;
+  background: none;
+}
+
+.waiver-btn-text {
+  flex: 1;
+  height: 100%;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  border: none;
+}
+
+.waiver-btn-arrow {
+  flex: 0 0 88px;
+  height: 100%;
+  background: rgba(224, 224, 224, 0.49);
+  border: 0.65px solid rgba(224, 224, 224, 0.3);
+  border-left: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.waiver-btn-arrow::before {
+  content: "→";
+  line-height: 1;
+}
+
+/* Welcome Section */
+.welcome-section {
+  padding: 50px 0;
+  background: white;
+  margin: 0 !important;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.welcome-container {
+  max-width: min(1200px, 100vw);
+  margin: 0 auto;
+  padding: 0 0 0 2rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.welcome-slides {
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.welcome-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.welcome-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  width: 100%;
+  position: relative;
+}
+
+.welcome-text {
+  width: 60%;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.section-tag {
+  display: inline-flex;
+  background: transparent;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  border-radius: 34px;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  height: 34px;
+  width: 115px;
+  text-align: center;
+  line-height: 1;
+  border: 0.65px solid black;
+  margin-bottom: 0;
+}
+
+.welcome-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.welcome-body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000;
+  max-width: 80%;
+}
+
+.welcome-image {
+  width: 50vw;
+}
+
+.welcome-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  display: block;
+}
+
+/* Welcome Navigation */
+.welcome-nav {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+}
+
+.nav-circle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.circle-number {
+  position: absolute;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  z-index: 2;
+  color: #7f848a; /* Default inactive color */
+  transition: color 0.3s ease;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  stroke-dasharray: 94.2;
+  stroke-dashoffset: 94.2;
+  transition: stroke 0.3s ease;
+  stroke: #7f848a; /* Default inactive color */
+  stroke-linecap: round; /* Rounded ends for smoother appearance */
+}
+
+/* Active state styling */
+.nav-circle.active .circle-number {
+  color: #000000; /* Active black color */
+}
+
+.nav-circle.active .progress-ring-circle {
+  stroke: #000000; /* Active black color */
+  animation: fillProgress 10s ease-out forwards;
+}
+
+@keyframes fillProgress {
+  from {
+    stroke-dashoffset: 94.2; /* Start from full circumference */
+  }
+  to {
+    stroke-dashoffset: 0; /* Fill completely */
+  }
+}
+
+/* Full-width Images */
+.full-width-image {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.full-width-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Explore Sections */
+.explore-block {
+  width: 100%;
+  max-width: 100vw;
+  height: 270px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem !important;
+  background: white;
+  color: black;
+  margin: 0 !important;
+  border: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.explore-block:last-child {
+  margin-bottom: 0;
+}
+
+.explore-block:hover {
+  background: #b0faff;
+  color: #2b00ff;
+}
+
+.explore-block:hover .explore-label {
+  color: #000000; /* "Explore" text stays black on hover */
+}
+
+.explore-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: min(1200px, 100vw);
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.explore-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.explore-label {
+  font-family: "Helvetica Neue", sans-serif;
+  font-style: italic;
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.explore-title {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(60px, 8vw, 95px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin: 0;
+  transition: color 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.explore-arrow {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.arrow-default,
+.arrow-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.arrow-hover {
+  opacity: 0;
+}
+
+.explore-block:hover .arrow-default {
+  opacity: 0;
+}
+
+.explore-block:hover .arrow-hover {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .welcome-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .welcome-image {
+    max-width: 80%;
+  }
+
+  .explore-title {
+    font-size: 60px;
+  }
+
+  .explore-label {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .first-time-modal {
+    bottom: 10px;
+    right: 10px;
+    max-width: 320px;
+    padding: 16px;
+  }
+
+  .waiver-btn-arrow {
+    flex: 0 0 80px;
+  }
+
+  .welcome-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .welcome-text {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .welcome-image {
+    width: 100%;
+  }
+
+  .explore-title {
+    font-size: 40px;
+  }
+
+  .explore-label {
+    font-size: 25px;
+  }
+
+  .explore-block {
+    height: 200px;
+    padding: 0 1rem;
+  }
+
+  .welcome-title {
+    font-size: 22px;
+  }
+
+  .welcome-body {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .first-time-modal {
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+    max-width: none;
+    padding: 12px;
+  }
+
+  .welcome-section {
+    padding: 50px 0;
+  }
+
+  .explore-title {
+    font-size: 28px;
+  }
+
+  .explore-label {
+    font-size: 20px;
+  }
+
+  .explore-block {
+    height: 150px;
+  }
+}

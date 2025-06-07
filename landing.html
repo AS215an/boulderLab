@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memberships - Boulder Lab</title>
+    <title>Boulder Lab - Climbing Gym</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="cart.css" />
+    <link rel="stylesheet" href="landing.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -84,7 +85,7 @@
         <nav class="mobile-nav">
           <ul>
             <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">MEMBERSHIPS</a></li>
+            <li><a href="index.html">MEMBERSHIPS</a></li>
             <li><a href="#">FIRST TIME</a></li>
             <li><a href="#">FAQs</a></li>
           </ul>
@@ -102,169 +103,229 @@
       </div>
     </header>
 
-    <main>
-      <section class="breadcrumbs">
-        <div class="container">
-          <p class="breadcrumb-nav">
-            <a href="landing.html" class="breadcrumb-link">HOME</a>
-            <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">MEMBERSHIPS</span>
-          </p>
+    <!-- Hero Section -->
+    <section class="hero">
+      <img
+        src="Images/HomePage/Hero page (1).png"
+        alt="Boulder Lab Hero"
+        class="hero-image"
+      />
+
+      <!-- First-time User Hover Panel -->
+      <div class="first-time-modal" id="firstTimeModal">
+        <button class="modal-close" id="modalClose">×</button>
+        <div class="modal-content">
+          <p class="modal-new-here">New here?</p>
+          <p class="modal-waiver">Complete your waiver before climbing :))</p>
+          <p class="modal-link">Age limit +</p>
+          <p class="modal-link">Already filled in? +</p>
+          <p class="modal-link">Contact us +</p>
+          <button class="complete-waiver-btn">
+            <div class="waiver-btn-text">Complete Waiver</div>
+            <div class="waiver-btn-arrow"></div>
+          </button>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="memberships-page" id="memberships-section">
-        <div class="container">
-          <h1>MEMBERSHIPS</h1>
+    <!-- First Time Boulders -->
+    <section class="explore-block" onclick="location.href='#first-time'">
+      <div class="explore-content">
+        <div class="explore-text">
+          <div class="explore-label">Explore</div>
+          <h3 class="explore-title">FIRST TIME BOULDERS</h3>
+        </div>
+        <div class="explore-arrow">
+          <img src="Images/Big-arrow.png" alt="Arrow" class="arrow-default" />
+          <img
+            src="Images/Blue-big-arrow.png"
+            alt="Arrow"
+            class="arrow-hover"
+          />
+        </div>
+      </div>
+    </section>
 
-          <div class="filter-controls">
-            <nav class="on-filters-navbar"></nav>
+    <!-- Rotating Welcome Section -->
+    <section class="welcome-section">
+      <div class="welcome-container">
+        <div class="welcome-slides">
+          <!-- Slide 1: About Us -->
+          <div class="welcome-slide active" data-slide="0">
+            <div class="welcome-content">
+              <div class="welcome-text">
+                <div class="section-tag">ABOUT US</div>
+                <h2 class="welcome-title">Welcome to BOULDER LAB!</h2>
+                <p class="welcome-body">
+                  We are a friendly space that caters to climbers of all
+                  abilities, whether it's your first time climbing or you're a
+                  world cup competitor, you'll find something at the Lab to
+                  challenge you!
+                </p>
+              </div>
+              <div class="welcome-image">
+                <img
+                  src="Images/HomePage/welcome-image3.png"
+                  alt="About Boulder Lab"
+                />
+              </div>
+            </div>
           </div>
-          <p class="results-count">6 Results</p>
 
-          <div class="product-grid">
-            <!-- Product Card 1: 2-Week Trial -->
-            <div class="product-card" data-category="weekly">
-              <div class="product-image-container">
-                <img
-                  src="Images/CardImages/Card1-2week.png"
-                  alt="2-Week Trial Membership"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">WEEK</span>
-                <h3 class="product-title title">2-Week Trial Membership</h3>
-                <p class="product-description description">
-                  Enjoy full membership perks for two weeks!
+          <!-- Slide 2: Location -->
+          <div class="welcome-slide" data-slide="1">
+            <div class="welcome-content">
+              <div class="welcome-text">
+                <div class="section-tag">LOCATION</div>
+                <h2 class="welcome-title">Welcome to BOULDER LAB!</h2>
+                <p class="welcome-body">
+                  Boulder Lab is THE place to boulder in Melbourne. With over
+                  2200m² of walls, shared between 3 premium facilities there is
+                  something for everyone.
                 </p>
-                <p class="product-price price">$49.00</p>
+              </div>
+              <div class="welcome-image">
+                <img
+                  src="Images/HomePage/welcome-image-2.png"
+                  alt="Boulder Lab Location"
+                />
               </div>
             </div>
+          </div>
 
-            <!-- Product Card 2: Month to Month -->
-            <a href="month-to-month.html" class="product-card-link">
-              <div class="product-card" data-category="monthly">
-                <div class="product-image-container">
-                  <img
-                    src="Images/CardImages/Card2-MonthToMonth.png"
-                    alt="Month to Month Membership"
-                    class="product-image"
-                  />
-                  <div class="card-overlay"></div>
-                </div>
-                <div class="product-info">
-                  <span class="product-category label">MONTH</span>
-                  <h3 class="product-title title">Month to Month Membership</h3>
-                  <p class="product-description description">
-                    Flexible and commitment-free. Cancel anytime!
-                  </p>
-                  <p class="product-price price">$34.50</p>
-                </div>
-              </div>
-            </a>
-
-            <!-- Product Card 3: 6 Month Membership -->
-            <div
-              class="product-card"
-              data-category="monthly"
-              data-page="6-month.html"
-            >
-              <div class="product-image-container">
-                <img
-                  src="Images/CardImages/Card3-6Month.png"
-                  alt="6 Month Membership"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">MONTH</span>
-                <h3 class="product-title title">6 Month Membership</h3>
-                <p class="product-description description">
-                  Our most popular membership!
+          <!-- Slide 3: Membership -->
+          <div class="welcome-slide" data-slide="2">
+            <div class="welcome-content">
+              <div class="welcome-text">
+                <div class="section-tag">MEMBERSHIP</div>
+                <h2 class="welcome-title">Welcome to BOULDER LAB!</h2>
+                <p class="welcome-body">
+                  With memberships covering all three locations, you've got no
+                  excuse not to become part of the family.
                 </p>
-                <p class="product-price price">$29.50</p>
               </div>
-            </div>
-
-            <!-- Product Card 4: 12 Month Membership -->
-            <div
-              class="product-card"
-              data-category="monthly"
-              data-page="12-month.html"
-            >
-              <div class="product-image-container">
+              <div class="welcome-image">
                 <img
-                  src="Images/CardImages/Card4-12Month.png"
-                  alt="12 Month Membership"
-                  class="product-image"
+                  src="Images/HomePage/welcome-image-1.png"
+                  alt="Boulder Lab Membership"
                 />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">MONTH</span>
-                <h3 class="product-title title">12 Month Membership</h3>
-                <p class="product-description description">
-                  Best long-term value for frequent climbers!
-                </p>
-                <p class="product-price price">$27.50</p>
-              </div>
-            </div>
-
-            <!-- Product Card 5: Annual Prepaid - Regular -->
-            <div
-              class="product-card"
-              data-category="yearly"
-              data-page="annual-regular.html"
-            >
-              <div class="product-image-container">
-                <img
-                  src="Images/CardImages/Card5-Annual-Regular.png"
-                  alt="Annual Prepaid - Regular"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">YEAR</span>
-                <h3 class="product-title title">Annual Prepaid - Regular</h3>
-                <p class="product-description description">
-                  The ultimate value for individuals or groups ready to commit
-                  for a year!
-                </p>
-                <p class="product-price price">$26.50</p>
-              </div>
-            </div>
-
-            <!-- Product Card 6: Annual Prepaid - Family -->
-            <div
-              class="product-card"
-              data-category="yearly"
-              data-page="annual-family.html"
-            >
-              <div class="product-image-container">
-                <img
-                  src="Images/CardImages/Card6-Annual-Family.png"
-                  alt="Annual Prepaid - Family"
-                  class="product-image"
-                />
-                <div class="card-overlay"></div>
-              </div>
-              <div class="product-info">
-                <span class="product-category label">YEAR</span>
-                <h3 class="product-title title">Annual Prepaid - Family</h3>
-                <p class="product-description description">
-                  Perfect for families: two adults max, minors included!
-                </p>
-                <p class="product-price price">$26.50</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+
+        <!-- Navigation Circles -->
+        <div class="welcome-nav">
+          <button
+            class="nav-circle active"
+            data-slide="0"
+            aria-label="Go to slide 1"
+          >
+            <span class="circle-number">1</span>
+            <svg class="progress-ring" width="32" height="32">
+              <circle
+                class="progress-ring-circle"
+                cx="16"
+                cy="16"
+                r="15"
+                stroke-width="1"
+                fill="transparent"
+              />
+            </svg>
+          </button>
+          <button class="nav-circle" data-slide="1" aria-label="Go to slide 2">
+            <span class="circle-number">2</span>
+            <svg class="progress-ring" width="32" height="32">
+              <circle
+                class="progress-ring-circle"
+                cx="16"
+                cy="16"
+                r="15"
+                stroke-width="1"
+                fill="transparent"
+              />
+            </svg>
+          </button>
+          <button class="nav-circle" data-slide="2" aria-label="Go to slide 3">
+            <span class="circle-number">3</span>
+            <svg class="progress-ring" width="32" height="32">
+              <circle
+                class="progress-ring-circle"
+                cx="16"
+                cy="16"
+                r="15"
+                stroke-width="1"
+                fill="transparent"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memberships -->
+    <section class="explore-block" onclick="location.href='memberships.html'">
+      <div class="explore-content">
+        <div class="explore-text">
+          <div class="explore-label">Explore</div>
+          <h3 class="explore-title">MEMBERSHIPS</h3>
+        </div>
+        <div class="explore-arrow">
+          <img src="Images/Big-arrow.png" alt="Arrow" class="arrow-default" />
+          <img
+            src="Images/Blue-big-arrow.png"
+            alt="Arrow"
+            class="arrow-hover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-width Blue Image -->
+    <section class="full-width-image">
+      <img src="Images/HomePage/blue-image.png" alt="Boulder Lab Climbing" />
+    </section>
+
+    <!-- Classes -->
+    <section class="explore-block" onclick="location.href='#classes'">
+      <div class="explore-content">
+        <div class="explore-text">
+          <div class="explore-label">Explore</div>
+          <h3 class="explore-title">CLASSES</h3>
+        </div>
+        <div class="explore-arrow">
+          <img src="Images/Big-arrow.png" alt="Arrow" class="arrow-default" />
+          <img
+            src="Images/Blue-big-arrow.png"
+            alt="Arrow"
+            class="arrow-hover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-width Boulder Moves Image -->
+    <section class="full-width-image">
+      <img src="Images/HomePage/BoulderMoves.png" alt="Boulder Moves" />
+    </section>
+
+    <!-- FAQs -->
+    <section class="explore-block" onclick="location.href='#faqs'">
+      <div class="explore-content">
+        <div class="explore-text">
+          <div class="explore-label">Explore</div>
+          <h3 class="explore-title">FAQS</h3>
+        </div>
+        <div class="explore-arrow">
+          <img src="Images/Big-arrow.png" alt="Arrow" class="arrow-default" />
+          <img
+            src="Images/Blue-big-arrow.png"
+            alt="Arrow"
+            class="arrow-hover"
+          />
+        </div>
+      </div>
+    </section>
 
     <footer>
       <div class="container footer-grid">
@@ -338,7 +399,7 @@
               >
             </li>
             <li>
-              <a href="#"
+              <a href="index.html"
                 >MEMBERSHIP <span class="external-link-icon">&#x2197;</span></a
               >
             </li>
@@ -358,9 +419,11 @@
         </div>
       </div>
     </footer>
+
     <script src="script.js"></script>
     <script src="menu.js"></script>
     <script src="cart.js"></script>
+    <script src="landing.js"></script>
 
     <!-- Full-screen Menu -->
     <div class="full-screen-menu" id="fullScreenMenu">
@@ -403,7 +466,7 @@
           <div class="menu-column">
             <h4>PRICING</h4>
             <ul>
-              <li><a href="#memberships-section">Memberships</a></li>
+              <li><a href="index.html">Memberships</a></li>
               <li><a href="#">Entry pass</a></li>
               <li><a href="#">Gear store</a></li>
             </ul>
@@ -533,27 +596,6 @@
             window.boulderLabCart.showCart();
           });
         }
-      });
-    </script>
-
-    <script>
-      // Product card navigation functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        const productCards = document.querySelectorAll(
-          ".product-card[data-page]"
-        );
-
-        productCards.forEach(function (card) {
-          card.addEventListener("click", function () {
-            const targetPage = this.getAttribute("data-page");
-            if (targetPage) {
-              window.location.href = targetPage;
-            }
-          });
-
-          // Add cursor pointer to indicate clickable
-          card.style.cursor = "pointer";
-        });
       });
     </script>
   </body>
