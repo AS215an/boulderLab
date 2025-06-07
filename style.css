@@ -891,51 +891,214 @@ footer {
 
 /* Mobile Menu Specifics */
 @media (max-width: 767px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .site-brand-bar {
+    padding: 8px 0;
+  }
+
+  .site-brand-title {
+    font-size: 1.2rem;
+  }
+
+  .ticker-wrapper {
+    height: 35px;
+    font-size: 10px;
+  }
+
+  .ticker span {
+    padding: 0 1rem;
+  }
+
+  .pause-btn {
+    font-size: 0.8rem;
+    right: 0.5rem;
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  .header-container {
+    padding: 0 10px;
+  }
+
+  .breadcrumbs {
+    padding: 8px 0;
+    font-size: 0.8rem;
+  }
+
+  .memberships-page {
+    padding: 20px 0;
+  }
+
+  .memberships-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .filter-controls {
+    margin-bottom: 15px;
+  }
+
+  .on-filters-navbar {
+    padding: 0 5px;
+    gap: 8px;
+  }
+
+  .on-filter-chip,
+  .on-filter-text-tab {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    min-height: 32px;
+  }
+
+  .results-count {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .product-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .product-info {
+    padding: 15px !important;
+    padding-left: 15px !important;
+  }
+
+  .product-info .title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .product-info .description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .product-info .price {
+    font-size: 1rem;
+  }
+
+  footer {
+    padding: 30px 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .footer-column {
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .footer-column:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .footer-column h4,
+  .footer-column h5 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .footer-column p,
+  .footer-column ul li a {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .locations-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .newsletter {
+    padding: 20px 0;
+  }
+
+  .newsletter form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .newsletter input[type="email"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .newsletter button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
   .header-container .mobile-nav {
-    display: none; /* Hidden by default on mobile */
+    display: none;
     position: absolute;
-    top: 100%; /* Position below header for dropdown */
+    top: 100%;
     left: 0;
-    right: 0; /* Ensure it spans full width */
+    right: 0;
     width: 100%;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
     z-index: 1000;
-    order: initial; /* Reset order for mobile stacking */
+    order: initial;
   }
 
   .header-container .mobile-nav.active {
-    display: block; /* Show when active */
+    display: block;
   }
 
   .header-container .mobile-nav ul {
-    flex-direction: column; /* Stack links vertically */
+    flex-direction: column;
     align-items: center;
-    gap: 0; /* Remove gap for full-width list items */
+    gap: 0;
   }
 
   .header-container .mobile-nav ul li {
     width: 100%;
     text-align: center;
   }
+
   .header-container .mobile-nav ul li a {
     display: block;
-    padding: 10px 15px; /* Adjust padding for better touch targets */
+    padding: 12px 15px;
     border-bottom: 1px solid #f0f0f0;
-    font-size: 1rem; /* Slightly larger font for mobile menu */
-    text-transform: uppercase; /* Match desktop */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Match desktop */
-    font-weight: normal; /* Match desktop */
-    color: #333; /* Match desktop */
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #333;
   }
+
   .header-container .mobile-nav ul li:last-child a {
     border-bottom: none;
   }
+
   .header-container .mobile-nav a:hover {
     background-color: #f9f9f9;
     color: #000;
-    border-bottom-color: #f0f0f0; /* Maintain border color on hover */
+    border-bottom-color: #f0f0f0;
   }
 
   .menu-toggle {
@@ -944,23 +1107,32 @@ footer {
     justify-content: center;
   }
 
+  .header-actions {
+    gap: 15px;
+  }
+
   .header-actions .search-btn,
   .header-actions .cart-btn {
-    font-size: 1rem; /* Base size for the buttons themselves */
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
-  .search-btn span, /* Target text part of search button (SEARCH) */
+
+  .search-btn span,
   .cart-count {
-    font-size: 0.8rem; /* Slightly smaller text on mobile for action button text */
+    font-size: 0.75rem;
   }
+
   .logo img {
-    max-height: 35px; /* Slightly smaller logo on mobile */
+    max-height: 35px;
   }
+
   .hamburger-icon-img {
-    max-height: 22px; /* Slightly smaller menu icon on mobile */
+    max-height: 22px;
   }
+
   .search-icon-img,
   .cart-icon-img {
-    max-height: 18px; /* Slightly smaller search/cart icons on mobile */
+    max-height: 18px;
   }
 }
 
@@ -1143,4 +1315,120 @@ footer {
 .product-card-link:hover .product-card {
   /* Enhance the existing card hover effect when the link is hovered */
   transform: none; /* Remove any conflicting transforms */
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .site-brand-title {
+    font-size: 1rem;
+  }
+
+  .ticker-wrapper {
+    height: 30px;
+    font-size: 9px;
+  }
+
+  .ticker span {
+    padding: 0 0.8rem;
+  }
+
+  .pause-btn {
+    font-size: 0.7rem;
+    right: 0.3rem;
+  }
+
+  .header-container {
+    padding: 0 5px;
+  }
+
+  .memberships-page h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .on-filter-chip,
+  .on-filter-text-tab {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    min-height: 28px;
+  }
+
+  .product-grid {
+    gap: 15px;
+    padding: 0 5px;
+  }
+
+  .product-info {
+    padding: 12px !important;
+    padding-left: 12px !important;
+  }
+
+  .product-info .title {
+    font-size: 1rem;
+  }
+
+  .product-info .description {
+    font-size: 0.85rem;
+  }
+
+  .product-info .price {
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    gap: 20px;
+  }
+
+  .footer-column {
+    padding-top: 15px;
+  }
+
+  .footer-column h4,
+  .footer-column h5 {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-column p,
+  .footer-column ul li a {
+    font-size: 0.75rem;
+  }
+
+  .newsletter input[type="email"],
+  .newsletter button[type="submit"] {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header-actions .search-btn,
+  .header-actions .cart-btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .search-btn span,
+  .cart-count {
+    font-size: 0.7rem;
+  }
+
+  .logo img {
+    max-height: 30px;
+  }
+
+  .hamburger-icon-img {
+    max-height: 20px;
+  }
+
+  .search-icon-img,
+  .cart-icon-img {
+    max-height: 16px;
+  }
 }

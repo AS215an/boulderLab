@@ -633,22 +633,211 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .breadcrumbs {
+    padding: 8px 0;
+    font-size: 0.8rem;
+  }
+
+  .product-page {
+    padding: 20px 0;
+  }
+
   .product-layout {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
+    padding: 0 10px;
+  }
+
+  .product-info-column {
+    order: 2;
+  }
+
+  .product-visual-column {
+    order: 1;
+  }
+
+  .product-availability {
+    font-size: 7px;
+    margin-bottom: 8px;
   }
 
   .product-title {
-    font-size: 50px;
+    font-size: 45px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .pricing-section {
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .main-price {
-    font-size: 28px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .best-value {
+    font-size: 18px;
+  }
+
+  .savings-text {
+    font-size: 7px;
+    margin-top: 8px;
+  }
+
+  .action-buttons {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .more-details-btn {
+    font-size: 7px;
+    padding: 8px 12px;
+  }
+
+  .positioned-more-details,
+  .positioned-more-details-left {
+    position: static;
+    margin: 10px 0;
+  }
+
+  .product-image-container {
+    margin-bottom: 20px;
+  }
+
+  .product-main-image {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .product-options {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .option-group {
+    margin-bottom: 20px;
+  }
+
+  .option-label {
+    font-size: 7px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .option-values {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .option-value {
+    font-size: 18px;
+    padding: 8px 12px;
+    min-width: auto;
+  }
+
+  .plan-dropdown,
+  .location-dropdown {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .plan-selected,
+  .location-selected {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
+  .plan-option,
+  .location-option {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .quantity-controls {
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .quantity-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .quantity-box {
+    width: 60px;
+    height: 35px;
+  }
+
+  .quantity-value {
+    font-size: 16px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+    font-size: 16px;
+    padding: 15px 20px;
+    margin: 20px auto;
+    display: block;
   }
 
   .product-details {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .descriptions-section,
+  .benefits-section {
+    width: 100%;
+    top: 20px;
+    padding-top: 15px;
+  }
+
+  .section-title {
+    font-size: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .description-text {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .benefits-list li {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 6px;
+    padding-left: 20px;
+  }
+
+  .benefits-list li::before {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .product-circular-text {
+    position: static;
+    margin: 30px auto;
+    justify-content: center;
   }
 
   .product-circular-text svg {
@@ -658,6 +847,146 @@
   .product-circular-text text {
     font-size: 14px;
     letter-spacing: 4px;
+  }
+
+  .product-circular-text .product-center-text {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .product-page {
+    padding: 15px 0;
+  }
+
+  .product-layout {
+    gap: 20px;
+    padding: 0 5px;
+  }
+
+  .product-title {
+    font-size: 35px;
+    margin-bottom: 12px;
+  }
+
+  .main-price {
+    font-size: 28px;
+  }
+
+  .best-value {
+    font-size: 16px;
+  }
+
+  .more-details-btn {
+    font-size: 6px;
+    padding: 6px 10px;
+  }
+
+  .product-options {
+    padding: 15px 10px;
+  }
+
+  .option-value {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+
+  .plan-dropdown,
+  .location-dropdown {
+    max-width: 200px;
+  }
+
+  .plan-selected,
+  .location-selected {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .plan-option,
+  .location-option {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .quantity-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .quantity-box {
+    width: 50px;
+    height: 32px;
+  }
+
+  .quantity-value {
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    max-width: 280px;
+    height: 55px;
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+
+  .product-details {
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .descriptions-section,
+  .benefits-section {
+    top: 15px;
+    padding-top: 12px;
+  }
+
+  .section-title {
+    font-size: 7px;
+    margin-bottom: 8px;
+  }
+
+  .description-text {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 6px;
+  }
+
+  .benefits-list li {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 5px;
+    padding-left: 18px;
+  }
+
+  .benefits-list li::before {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .product-circular-text {
+    margin: 25px auto;
+  }
+
+  .product-circular-text svg {
+    width: 180px;
+  }
+
+  .product-circular-text text {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .product-circular-text .product-center-text {
+    font-size: 20px;
+    letter-spacing: 0.5px;
   }
 }
 

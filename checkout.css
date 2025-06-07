@@ -667,17 +667,385 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
   .checkout-container {
     flex-direction: column;
     gap: 20px;
+    padding: 15px 10px;
   }
 
-  .form-row {
-    flex-direction: column;
-    gap: 16px;
+  .checkout-main {
+    width: 100%;
+    padding: 0;
   }
 
   .order-summary {
     position: static;
+    width: 100%;
+    padding: 20px 15px;
+    margin-top: 20px;
+    order: 2;
+  }
+
+  .checkout-header {
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .checkout-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .continue-shopping {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .checkout-steps {
+    gap: 15px;
+  }
+
+  .checkout-step {
+    padding: 15px;
+  }
+
+  .step-header {
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-size: 16px;
+  }
+
+  .edit-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-input {
+    padding: 12px;
+    font-size: 14px;
+    height: auto;
+    min-height: 44px;
+  }
+
+  .form-label {
+    font-size: 12px;
+  }
+
+  .checkbox-group {
+    margin: 15px 0;
+  }
+
+  .checkbox-item {
+    margin-bottom: 12px;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+    line-height: 1.4;
+    padding-left: 30px;
+  }
+
+  .checkbox-input {
+    width: 18px;
+    height: 18px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .order-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .order-item {
+    padding: 15px 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .order-item-image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .order-item-details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .order-item-title {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .order-item-price {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .order-item-meta {
+    width: 100%;
+  }
+
+  .order-meta-row {
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .quantity-controls {
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .qty-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .qty-display {
+    width: 60px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .summary-row {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .summary-label,
+  .summary-value {
+    font-size: 13px;
+  }
+
+  .review-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .review-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .review-item-title {
+    font-size: 14px;
+  }
+
+  .review-details {
+    gap: 6px;
+  }
+
+  .price-row {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .price-label,
+  .price-value {
+    font-size: 13px;
+  }
+
+  .gift-card-section {
+    margin: 15px 0;
+    padding: 12px 0;
+  }
+
+  .gift-card-input {
+    gap: 10px;
+  }
+
+  .gift-card-field {
+    padding: 10px;
+    font-size: 14px;
+    min-height: 40px;
+  }
+
+  .gift-card-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .total-section {
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .total-label {
+    font-size: 14px;
+  }
+
+  .total-value {
+    font-size: 18px;
+  }
+
+  .grand-total-row .total-label,
+  .grand-total-row .total-value {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 10px 5px;
+    gap: 15px;
+  }
+
+  .checkout-main {
+    padding: 0;
+  }
+
+  .order-summary {
+    padding: 15px 10px;
+  }
+
+  .checkout-title {
+    font-size: 20px;
+  }
+
+  .continue-shopping {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .checkout-step {
+    padding: 12px;
+  }
+
+  .step-title {
+    font-size: 14px;
+  }
+
+  .edit-btn {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .form-input {
+    padding: 10px;
+    font-size: 13px;
+    min-height: 40px;
+  }
+
+  .form-label {
+    font-size: 11px;
+  }
+
+  .checkbox-label {
+    font-size: 12px;
+    padding-left: 25px;
+  }
+
+  .checkbox-input {
+    width: 16px;
+    height: 16px;
+  }
+
+  .checkout-btn {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  .order-title {
+    font-size: 16px;
+  }
+
+  .order-item {
+    padding: 12px 0;
+  }
+
+  .order-item-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .order-item-title {
+    font-size: 13px;
+  }
+
+  .order-item-price {
+    font-size: 14px;
+  }
+
+  .qty-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .qty-display {
+    width: 50px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .summary-label,
+  .summary-value {
+    font-size: 12px;
+  }
+
+  .review-item-title {
+    font-size: 13px;
+  }
+
+  .price-label,
+  .price-value {
+    font-size: 12px;
+  }
+
+  .gift-card-field {
+    padding: 8px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  .gift-card-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .total-section {
+    padding: 12px;
+  }
+
+  .total-label {
+    font-size: 13px;
+  }
+
+  .total-value {
+    font-size: 16px;
+  }
+
+  .grand-total-row .total-label,
+  .grand-total-row .total-value {
+    font-size: 14px;
   }
 }

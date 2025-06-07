@@ -270,13 +270,17 @@
 /* Responsive adjustments for the main title */
 @media (max-width: 768px) {
   .menu-boulder-lab-title {
-    font-size: 60px; /* Smaller on mobile */
+    font-size: 60px;
   }
 
-  /* On mobile, stack columns vertically */
+  .menu-content {
+    padding: 30px 15px;
+  }
+
   .menu-links-grid {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    grid-template-rows: auto; /* Auto rows */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 30px;
   }
 
   .menu-column:nth-child(1),
@@ -288,27 +292,117 @@
     grid-row: auto;
   }
 
+  .menu-column h4 {
+    font-size: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+
+  .menu-column ul li {
+    margin-bottom: 3px;
+  }
+
+  .menu-column ul li a {
+    font-size: 22px;
+    padding: 4px 0;
+    line-height: 1.2;
+  }
+
+  .menu-column ul li a:hover {
+    padding: 4px 10px;
+  }
+
   .menu-circular-text {
     grid-column: 1;
     grid-row: auto;
+    padding-top: 20px;
+    justify-content: center;
   }
 
   .menu-circular-text svg {
-    width: 250px; /* Slightly smaller on mobile */
+    width: 250px;
+  }
+
+  .menu-circular-text text {
+    font-size: 16px;
+    letter-spacing: 6px;
+  }
+
+  .menu-header {
+    padding: 15px 0;
+  }
+
+  .menu-header-container {
+    padding: 0 15px;
+  }
+
+  .menu-header-right {
+    gap: 15px;
+  }
+
+  .menu-header-right .search-btn,
+  .menu-header-right .close-menu-btn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
   }
 }
 
 @media (max-width: 480px) {
   .menu-boulder-lab-title {
-    font-size: 40px; /* Even smaller on very small screens */
+    font-size: 40px;
+  }
+
+  .menu-content {
+    padding: 20px 10px;
+  }
+
+  .menu-links-grid {
+    gap: 25px;
+  }
+
+  .menu-column h4 {
+    font-size: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+
+  .menu-column ul li a {
+    font-size: 20px;
+    padding: 3px 0;
+  }
+
+  .menu-column ul li a:hover {
+    padding: 3px 8px;
+  }
+
+  .menu-circular-text {
+    padding-top: 15px;
   }
 
   .menu-circular-text svg {
-    width: 200px; /* Smaller on very small screens */
+    width: 200px;
   }
 
   .menu-circular-text text {
-    font-size: 14px; /* Smaller font on very small screens */
-    letter-spacing: 6px; /* Reduced letter spacing on small screens */
+    font-size: 14px;
+    letter-spacing: 5px;
+  }
+
+  .menu-header {
+    padding: 10px 0;
+  }
+
+  .menu-header-container {
+    padding: 0 10px;
+  }
+
+  .menu-header-right {
+    gap: 10px;
+  }
+
+  .menu-header-right .search-btn,
+  .menu-header-right .close-menu-btn {
+    font-size: 0.75rem;
+    padding: 3px 6px;
   }
 }
