@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Note: Mobile Menu Toggle functionality moved to menu.js
-  // The hamburger menu now opens the full-screen menu instead of mobile nav
-
-  // --- ON-STYLE DYNAMIC FILTER LOGIC ---
   const filterNavbar = document.querySelector(".on-filters-navbar");
   const productCards = document.querySelectorAll(".product-card");
   const resultsCount = document.querySelector(".results-count");
@@ -60,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
       type === "chip" ? "on-filter-chip" : "on-filter-text-tab"
     );
 
-    // Uppercase the label for display, keeping "All" as is
     const displayLabel =
       label.toLowerCase() === "all" ? "All" : label.toUpperCase();
 
@@ -68,15 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
       '<span class="on-filter-clear-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>';
 
     if (type === "chip") {
-      element.innerHTML = `<span>${displayLabel}</span>`; // Use uppercased label
+      element.innerHTML = `<span>${displayLabel}</span>`;
 
       if (options.isInitialAll) {
         element.classList.add("is-initial-all-active");
       }
       if (options.isClearable) {
-        // Covers primary and secondary active chips
         element.classList.add("is-clearable");
-        element.innerHTML += iconHTML; // Add icon if clearable
+        element.innerHTML += iconHTML;
       }
       if (options.isPrimary) {
         element.classList.add("is-primary-active-category-chip");
@@ -85,8 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         element.classList.add("is-secondary-all-chip");
       }
     } else {
-      // Text Tab
-      element.innerHTML = `<span>${displayLabel}</span>`; // Use uppercased label
+      element.innerHTML = `<span>${displayLabel}</span>`;
       if (options.isMainAllActiveTab) {
         element.classList.add("is-main-all-active");
       } else if (options.isInactiveTab) {
@@ -104,32 +97,27 @@ document.addEventListener("DOMContentLoaded", () => {
     chipContainer.className = "on-filters-chip-container";
 
     if (activeFilterValue === "all") {
-      // 1. "All" active chip (no 'x')
       chipContainer.appendChild(
         createFilterElement("chip", filterCategories[0], { isInitialAll: true })
       );
       filterNavbar.appendChild(chipContainer);
 
-      // 2. Other categories as inactive text tabs
       filterCategories.slice(1).forEach((cat) => {
         filterNavbar.appendChild(
           createFilterElement("tab", cat, { isInactiveTab: true })
         );
       });
     } else {
-      // A specific category is active - Overlapping chips
       const activeCategory = filterCategories.find(
         (c) => c.id === activeFilterValue
       );
       if (activeCategory) {
-        // Create "All" chip first (will be visually behind)
         chipContainer.appendChild(
           createFilterElement("chip", filterCategories[0], {
             isClearable: true,
             isSecondary: true,
           })
         );
-        // Create active category chip (will be visually in front)
         chipContainer.appendChild(
           createFilterElement("chip", activeCategory, {
             isClearable: true,
@@ -139,14 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       filterNavbar.appendChild(chipContainer);
 
-      // Main "All" as active text tab
       filterNavbar.appendChild(
         createFilterElement("tab", filterCategories[0], {
           isMainAllActiveTab: true,
         })
       );
 
-      // Other categories (excluding the active one) as inactive text tabs
       filterCategories.slice(1).forEach((cat) => {
         if (cat.id !== activeFilterValue) {
           filterNavbar.appendChild(
@@ -173,21 +159,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const newFilterValue = filterButton.dataset.filter;
         const isClearIconClick = targetElement.closest(".on-filter-clear-icon");
 
-        // If an 'x' icon on ANY chip is clicked, reset to "all"
         if (isClearIconClick) {
           renderFilterUI("all");
           applyProductFilter("all");
           return;
         }
 
-        // If the body of the secondary "All" chip is clicked (and not its 'x' icon),
-        // do nothing.
         if (filterButton.classList.contains("is-secondary-all-chip")) {
-          return; // Explicitly do nothing
+          return;
         }
 
-        // If primary active chip body is clicked (not its 'x' icon, which is handled above)
-        // This re-applies the current category filter.
         if (
           filterButton.classList.contains("is-primary-active-category-chip") &&
           newFilterValue !== "all"
@@ -196,8 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
           applyProductFilter(newFilterValue);
           return;
         }
-
-        // For other clicks (text tabs, initial 'All' chip body)
         if (newFilterValue) {
           renderFilterUI(newFilterValue);
           applyProductFilter(newFilterValue);
@@ -209,8 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (filterNavbar) {
     renderFilterUI("all");
     applyProductFilter("all");
-  } else {
-    console.error("Filter navbar (.on-filters-navbar) not found!");
   }
 
   // Ticker Pause/Play Functionality

@@ -1,93 +1,92 @@
 # Boulder Lab Website
 
-This is a climbing gym website with a full-screen navigation menu.
+A modern climbing gym website featuring a full-screen navigation menu and membership listings.
 
 ## Project Structure
 
-### Main Files
+```
+boulderLab/
+├── index.html          # Main membership page
+├── style.css           # Main stylesheet
+├── script.js           # Main page functionality
+├── menu.html           # Menu component structure
+├── menu.css            # Menu styling
+├── menu.js             # Menu functionality
+├── cart.css            # Shopping cart styles
+└── Images/             # Image assets
+```
 
-- `index.html` - Main page with membership listings
-- `style.css` - Main stylesheet for the page
-- `script.js` - Main JavaScript functionality
+## Features
 
-### Menu Component (Organized)
+### Navigation Menu
 
-- `menu.html` - Full-screen menu HTML structure
-- `menu.css` - Menu-specific styling
-- `menu.js` - Menu functionality
+- **Full-screen overlay menu** with hamburger toggle
+- **3-column responsive layout**:
+  - Row 1: INFORMATION | PRICING | CLASSES
+  - Row 2: YOUTH PROGRAM | EVENTS | Circular Text Animation
+- **Multiple close methods**: Close button, background click, or Escape key
+- **Circular text element** with animated rotating text
 
-### Testing
+### Typography
 
-- `test.html` - Simple test page to verify menu functionality
+- **BOULDER LAB Title**: 100px Fira Sans Medium
+- **Section Headers**: 10px Helvetica Neue Medium
+- **Menu Items**: 25px Helvetica Neue Medium
+- **Font Stack**: Helvetica Neue → Inter → System fonts
 
-## Recent Improvements
+### Layout
 
-### Typography Updates
+- **Responsive design** for desktop and mobile
+- **Grid-based membership cards** with hover effects
+- **Ticker banner** with scrolling announcements
+- **Clean, modern aesthetic**
 
-1. **BOULDER LAB Title**: Font size 100px, Fira Sans Medium, positioned in top left corner
-2. **Section Headers**: Font size 10px, Helvetica Neue Medium (INFORMATION, PRICING, etc.)
-3. **Menu Items**: Font size 25px, Helvetica Neue Medium (FAQs, Bookings +, etc.)
+## Quick Start
 
-### Layout & Spacing Fixes ✅ UPDATED
+1. **Start local server**:
 
-1. **Grid Layout**: Fixed 3-column layout matching Figma design
-   - **Row 1**: INFORMATION | PRICING | CLASSES
-   - **Row 2**: YOUTH PROGRAM | EVENTS | Circular Text Element
-2. **Spacing**: Perfectly balanced spacing between menu items
-   - **Margin**: 2px between list items for optimal separation
-   - **Padding**: 3px vertical padding on links for readability
-   - **Line Height**: Set to 1.1 for compact yet readable text spacing
-3. **Circular Text Animation**: Enhanced positioning and typography
-   - **Position**: Moved to top (padding-top: 0px) for highest placement
-   - **Size**: Increased to 300px diameter for better visibility
-   - **Typography**: 18px Helvetica Neue Bold for bigger, bolder letters
-   - **Content**: Single clean message without duplication
-   - **Letter Spacing**: Increased to 8px for better word separation
-   - **Responsive**: Scales down appropriately on mobile devices
-4. **Responsive Design**: Proper mobile stacking for smaller screens
+   ```bash
+   python3 -m http.server 8000
+   ```
 
-### Code Organization
+2. **Open in browser**:
 
-- Separated menu component into dedicated files for better maintainability
-- Improved modular architecture
-- Added font fallbacks for better cross-platform compatibility
+   ```
+   http://localhost:8000
+   ```
 
-### Menu Functionality ✅ FIXED
+3. **Test the menu**:
+   - Click the hamburger icon (☰) to open
+   - Verify the 3-column layout matches design
+   - Test closing with button, background click, or Escape key
 
-- **Hamburger Menu**: Click to open full-screen overlay menu
-- **Close Button**: Click "X CLOSE" to close the menu
-- **Background Click**: Click on black background to close
-- **Escape Key**: Press Escape to close the menu
-- **Link Clicks**: Menu automatically closes when clicking any menu item
+## File Organization
 
-## Font Stack
+### Core Files
 
-- Primary: Helvetica Neue
-- Fallback: Inter (Google Fonts)
-- System fallbacks: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, etc.
+- **index.html** - Main page with membership listings and header
+- **style.css** - Global styles, layout, and component styling
+- **script.js** - Main page interactions and functionality
 
-## How to Run
+### Menu Component
 
-1. Start a local server: `python3 -m http.server 8000`
-2. Open `http://localhost:8000` in your browser
-3. Click the hamburger menu to see the full-screen menu
+- **menu.html** - Standalone menu HTML structure
+- **menu.css** - Menu-specific styles and animations
+- **menu.js** - Menu toggle functionality and event handlers
 
-## Testing the Menu
+### Additional
 
-1. Open `http://localhost:8000/test.html` for a comprehensive test page
-2. Or use the main page at `http://localhost:8000/index.html`
-3. Click the hamburger icon (☰) to open the menu
-4. Verify the layout matches the Figma design:
-   - Row 1: INFORMATION, PRICING, CLASSES
-   - Row 2: YOUTH PROGRAM, EVENTS, Circular Text
-   - Tighter spacing between menu items
-5. Test closing with:
-   - The "X CLOSE" button
-   - Clicking on the black background
-   - Pressing the Escape key
+- **cart.css** - Shopping cart component styles
 
-## Browser Compatibility
+## Browser Support
 
-- Modern browsers supporting CSS Grid
+- Modern browsers with CSS Grid support
 - Progressive enhancement for older browsers
-- Menu works on desktop and mobile devices
+- Responsive design for mobile devices
+
+## Development Notes
+
+- Modular component architecture for maintainability
+- Semantic HTML structure for accessibility
+- Optimized font loading with fallbacks
+- Clean separation of concerns (HTML/CSS/JS)
