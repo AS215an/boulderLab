@@ -1,0 +1,683 @@
+/* Checkout Page Specific Styles */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  padding: 40px 20px;
+  align-items: flex-start;
+}
+
+/* Left Column - Checkout Form */
+.checkout-main {
+  flex: 2;
+  max-width: 800px;
+  background-color: #ffffff;
+}
+
+/* Right Column - Order Summary */
+.order-summary {
+  flex: 1;
+  max-width: 400px;
+  background-color: #f8f8f8;
+  padding: 30px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+/* Header */
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.checkout-title {
+  font-family: "Fira Sans", Arial, sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 25px;
+  color: #000000;
+}
+
+.continue-shopping {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  color: #2b00ff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.continue-shopping:hover {
+  text-decoration: underline;
+}
+
+/* Steps Container */
+.checkout-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #ffffff;
+}
+
+/* Individual Step */
+.checkout-step {
+  margin-bottom: 40px;
+  border: none;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+/* Section separator lines */
+.checkout-step.active .step-content {
+  border-top: 1px solid #000000; /* Active section - black */
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+/* Remove this rule to show line for ORDER REVIEW section */
+
+.checkout-step .step-title {
+  color: #8a8a8a; /* Inactive step color */
+}
+
+.checkout-step.active .step-title,
+.checkout-step.completed .step-title {
+  color: #000000; /* Active/completed step color */
+}
+
+.checkout-step.completed .step-content {
+  display: none !important;
+}
+
+.checkout-step.completed .step-summary {
+  display: block !important;
+}
+
+.checkout-step:not(.active) .step-content {
+  display: none;
+}
+
+.step-summary {
+  display: none;
+  background-color: transparent;
+  padding: 20px 0;
+  border-top: 1px solid #8a8a8a; /* Default gray for inactive steps */
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+.checkout-step.active .step-summary,
+.checkout-step.completed .step-summary {
+  border-top: 1px solid #000000; /* Active/completed section - black */
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summary-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #666666;
+}
+
+.summary-value {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* Reduce gap between title and line for active steps */
+.checkout-step.active .step-header {
+  margin-bottom: 5px;
+}
+
+/* Separator lines for inactive steps (but not completed) */
+.checkout-step:not(.active):not(.completed) .step-header {
+  border-bottom: 1px solid #8a8a8a;
+  padding-bottom: 24px;
+  margin-bottom: 0;
+}
+
+.step-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 15px;
+  margin: 0;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 12px;
+  color: #000000;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Form Styling */
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  position: relative;
+}
+
+.form-group.full-width {
+  flex: 2;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #000000;
+  border-radius: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #999999;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 2px solid #000000;
+}
+
+/* Floating labels */
+.form-label {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #999999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  padding: 0 4px;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  top: -6px;
+  font-size: 11px;
+  color: #000000;
+  font-weight: 400;
+}
+
+/* Payment field icons */
+#cardNumber {
+  background-image: url("Images/CardNumber-icon.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 32px 32px;
+  padding-right: 50px;
+}
+
+#expiryDate {
+  background-image: url("Images/ExpiryDate-icon.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 32px 32px;
+  padding-right: 50px;
+}
+
+#securityCode {
+  background-image: url("Images/SecurityCode-icon.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 32px 32px;
+  padding-right: 50px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  margin: 24px 0;
+}
+
+.checkbox-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.checkbox-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-input:checked {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.checkbox-input:checked::after {
+  content: "✓";
+  position: absolute;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.checkbox-label .terms-link {
+  font-weight: 400;
+  text-decoration: underline;
+  color: #000000;
+  cursor: pointer;
+}
+
+.checkbox-label a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* Error Styling */
+.form-input.error {
+  border: 2px solid #b30000 !important;
+}
+
+.error-message {
+  color: #b30000;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  display: none;
+  text-align: left;
+}
+
+.error-message.show {
+  display: block;
+}
+
+.checkbox-error {
+  color: #b30000;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-left: 30px; /* Align with checkbox text */
+  display: none;
+}
+
+.checkbox-error.show {
+  display: block;
+}
+
+/* Buttons */
+.checkout-btn {
+  width: 100%;
+  max-width: 750px;
+  height: 50px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.checkout-btn:disabled {
+  background-color: #cccccc;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+/* Order Summary Styles */
+.order-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #000000;
+  margin: 0 0 24px 0;
+}
+
+.order-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.order-item:last-of-type {
+  border-bottom: none;
+}
+
+.order-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  background-color: #f0f0f0;
+}
+
+.order-item-details {
+  flex: 1;
+}
+
+.order-item-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.order-item-price {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+  float: right;
+  margin-top: -22px;
+}
+
+.order-item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.order-meta-row {
+  display: flex;
+  gap: 15px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  color: #666666;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: fit-content;
+}
+
+.qty-btn {
+  width: 40px;
+  height: 32px;
+  border: 1px solid #d1d1d1;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.qty-display {
+  width: 60px;
+  height: 32px;
+  border: 1px solid #d1d1d1;
+  border-left: none;
+  border-right: none;
+  background-color: #f7f8f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  box-sizing: border-box;
+}
+
+/* Disabled quantity controls styles */
+.quantity-controls.disabled .qty-btn {
+  background-color: #f5f5f5;
+  color: #999999;
+  border-color: #e0e0e0;
+  cursor: not-allowed !important;
+}
+
+.quantity-controls.disabled .qty-display {
+  background-color: #f5f5f5;
+  color: #999999;
+  border-color: #e0e0e0;
+}
+
+/* Final step order summary styling */
+.order-summary.final-step {
+  opacity: 0.8;
+}
+
+/* Review item styles */
+.review-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item-header {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-item-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
+  margin: 0;
+}
+
+/* Startup fee specific styling */
+.startup-fee .review-item-header {
+  margin-bottom: 0;
+}
+
+.startup-fee .review-item-price {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+}
+
+.review-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Grand total styling */
+.review-grand-total {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e7e7e7;
+}
+
+.grand-total-row .total-label {
+  font-weight: 500;
+  font-size: 18px;
+  color: #000000;
+}
+
+.grand-total-row .total-value {
+  font-weight: 500;
+  font-size: 18px;
+  color: #000000;
+}
+
+/* Pricing Breakdown */
+.pricing-breakdown {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e7e7e7;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.price-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+}
+
+.price-value {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+}
+
+/* Gift Card Section */
+.gift-card-section {
+  margin: 20px 0;
+  padding: 16px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.gift-card-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gift-card-field {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+}
+
+.gift-card-btn {
+  width: 32px;
+  height: 32px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Total Section */
+.total-section {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 16px;
+  margin-top: 0px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.total-value {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}

@@ -6,6 +6,7 @@
     <title>Memberships - Boulder Lab</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="cart.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -126,7 +127,7 @@
             <div class="product-card" data-category="weekly">
               <div class="product-image-container">
                 <img
-                  src="Images/Card1-2week.png"
+                  src="Images/CardImages/Card1-2week.png"
                   alt="2-Week Trial Membership"
                   class="product-image"
                 />
@@ -147,7 +148,7 @@
               <div class="product-card" data-category="monthly">
                 <div class="product-image-container">
                   <img
-                    src="Images/Card2-MonthToMonth.png"
+                    src="Images/CardImages/Card2-MonthToMonth.png"
                     alt="Month to Month Membership"
                     class="product-image"
                   />
@@ -172,7 +173,7 @@
             >
               <div class="product-image-container">
                 <img
-                  src="Images/Card3-6Month.png"
+                  src="Images/CardImages/Card3-6Month.png"
                   alt="6 Month Membership"
                   class="product-image"
                 />
@@ -196,7 +197,7 @@
             >
               <div class="product-image-container">
                 <img
-                  src="Images/Card4-12Month.png"
+                  src="Images/CardImages/Card4-12Month.png"
                   alt="12 Month Membership"
                   class="product-image"
                 />
@@ -220,7 +221,7 @@
             >
               <div class="product-image-container">
                 <img
-                  src="Images/Card5-Annual-Regular.png"
+                  src="Images/CardImages/Card5-Annual-Regular.png"
                   alt="Annual Prepaid - Regular"
                   class="product-image"
                 />
@@ -245,7 +246,7 @@
             >
               <div class="product-image-container">
                 <img
-                  src="Images/Card6-Annual-Family.png"
+                  src="Images/CardImages/Card6-Annual-Family.png"
                   alt="Annual Prepaid - Family"
                   class="product-image"
                 />
@@ -359,6 +360,7 @@
     </footer>
     <script src="script.js"></script>
     <script src="menu.js"></script>
+    <script src="cart.js"></script>
 
     <!-- Full-screen Menu -->
     <div class="full-screen-menu" id="fullScreenMenu">
@@ -475,6 +477,64 @@
         </div>
       </div>
     </div>
+
+    <!-- 🛒 CART OVERLAY -->
+    <div class="cart-background-overlay" id="cartBackgroundOverlay"></div>
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-container">
+        <!-- Cart Header -->
+        <div class="cart-header">
+          <div class="cart-header-left">
+            <span class="cart-bag-text">BAG</span>
+            <img src="Images/Cart.png" alt="Bag" class="cart-bag-icon" />
+            <span class="cart-item-count" id="cartItemCount">00</span>
+          </div>
+          <div class="cart-header-right">
+            <button class="cart-close-btn" id="cartCloseBtn">X CLOSE</button>
+          </div>
+        </div>
+
+        <!-- Cart Items Container (Scrollable) -->
+        <div class="cart-items-container" id="cartItemsContainer">
+          <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <!-- Cart Empty State -->
+        <div class="cart-empty-state" id="cartEmptyState">
+          <p>Your cart is empty</p>
+        </div>
+
+        <!-- Cart Main Content -->
+        <div class="cart-main-content" id="cartMainContent">
+          <!-- Cart Bottom Section -->
+          <div class="cart-bottom-section">
+            <!-- Bottom Separator -->
+            <div class="cart-bottom-separator"></div>
+
+            <!-- Subtotal -->
+            <div class="cart-subtotal">
+              <span class="cart-subtotal-label">SUBTOTAL (AUD)</span>
+              <span class="cart-subtotal-amount" id="cartSubtotal">$0.00</span>
+            </div>
+
+            <!-- Checkout Button -->
+            <button class="cart-checkout-btn">CHECKOUT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Cart button functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartBtn = document.querySelector(".cart-btn");
+        if (cartBtn && window.boulderLabCart) {
+          cartBtn.addEventListener("click", function () {
+            window.boulderLabCart.showCart();
+          });
+        }
+      });
+    </script>
 
     <script>
       // Product card navigation functionality

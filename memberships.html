@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memberships - Boulder Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Add Helvetica Neue font (fallback to system fonts) -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      /* Helvetica Neue fallback styles */
+      body {
+        font-family: "Helvetica Neue", Inter, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-brand-bar">
+      <div class="container">
+        <p class="site-brand-title">BOULDER LAB</p>
+      </div>
+    </div>
+    <div class="ticker-wrapper">
+      <div class="ticker" id="ticker">
+        <span>WELCOME TO BOULDER LAB</span>
+        <span>•</span>
+        <span>FIRST TIME VISITING?</span>
+        <span>•</span>
+        <span>CLICK HERE FOR EVERYTHING YOU NEED TO KNOW</span>
+        <span>•</span>
+        <span>WHAT TO BRING, HOW TO BOOK, AND MORE</span>
+        <span>•</span>
+        <span>NEED HELP? ASK OUR FRONT DESK ANYTIME</span>
+        <span>•</span>
+        <span>BOULDERING MADE SIMPLE FOR FIRST-TIMERS</span>
+        <span>•</span>
+        <span>GET STARTED — YOUR CLIMBING JOURNEY BEGINS HERE</span>
+        <span>•</span>
+        <span>WELCOME TO BOULDER LAB</span>
+        <span>•</span>
+        <span>FIRST TIME VISITING?</span>
+        <span>•</span>
+        <span>CLICK HERE FOR EVERYTHING YOU NEED TO KNOW</span>
+        <span>•</span>
+        <span>WHAT TO BRING, HOW TO BOOK, AND MORE</span>
+        <span>•</span>
+        <span>NEED HELP? ASK OUR FRONT DESK ANYTIME</span>
+        <span>•</span>
+        <span>BOULDERING MADE SIMPLE FOR FIRST-TIMERS</span>
+        <span>•</span>
+        <span>GET STARTED — YOUR CLIMBING JOURNEY BEGINS HERE</span>
+        <span>•</span>
+        <span>WELCOME TO BOULDER LAB</span>
+        <span>•</span>
+      </div>
+      <button
+        class="pause-btn"
+        id="pauseBtn"
+        aria-label="Pause banner"
+        aria-pressed="false"
+      >
+        ❚❚
+      </button>
+    </div>
+    <header>
+      <div class="container header-container">
+        <div class="header-left-section">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <img src="Images/Menu.png" alt="Menu" class="hamburger-icon-img" />
+          </button>
+          <div class="logo">
+            <img src="Images/boulder_logo.png" alt="Boulder Lab Logo" />
+          </div>
+        </div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">MEMBERSHIPS</a></li>
+            <li><a href="#">FIRST TIME</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn">
+            <img src="Images/Search.png" alt="Search" class="search-icon-img" />
+            SEARCH
+          </button>
+          <button class="cart-btn">
+            <img src="Images/Cart.png" alt="Cart" class="cart-icon-img" />
+            <span class="cart-count">00</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="breadcrumbs">
+        <div class="container">
+          <p class="breadcrumb-nav">
+            <a href="#" class="breadcrumb-link">HOME</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">MEMBERSHIPS</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="memberships-page" id="memberships-section">
+        <div class="container">
+          <h1>MEMBERSHIPS</h1>
+
+          <div class="filter-controls">
+            <nav class="on-filters-navbar"></nav>
+          </div>
+          <p class="results-count">6 Results</p>
+
+          <div class="product-grid">
+            <!-- Product Card 1: 2-Week Trial -->
+            <div class="product-card" data-category="weekly">
+              <div class="product-image-container">
+                <img
+                  src="Images/CardImages/Card1-2week.png"
+                  alt="2-Week Trial Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category label">WEEK</span>
+                <h3 class="product-title title">2-Week Trial Membership</h3>
+                <p class="product-description description">
+                  Enjoy full membership perks for two weeks!
+                </p>
+                <p class="product-price price">$49.00</p>
+              </div>
+            </div>
+
+            <!-- Product Card 2: Month to Month -->
+            <a href="month-to-month.html" class="product-card-link">
+              <div class="product-card" data-category="monthly">
+                <div class="product-image-container">
+                  <img
+                    src="Images/CardImages/Card2-MonthToMonth.png"
+                    alt="Month to Month Membership"
+                    class="product-image"
+                  />
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category label">MONTH</span>
+                  <h3 class="product-title title">Month to Month Membership</h3>
+                  <p class="product-description description">
+                    Flexible and commitment-free. Cancel anytime!
+                  </p>
+                  <p class="product-price price">$34.50</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product Card 3: 6 Month Membership -->
+            <div
+              class="product-card"
+              data-category="monthly"
+              data-page="6-month.html"
+            >
+              <div class="product-image-container">
+                <img
+                  src="Images/CardImages/Card3-6Month.png"
+                  alt="6 Month Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category label">MONTH</span>
+                <h3 class="product-title title">6 Month Membership</h3>
+                <p class="product-description description">
+                  Our most popular membership!
+                </p>
+                <p class="product-price price">$29.50</p>
+              </div>
+            </div>
+
+            <!-- Product Card 4: 12 Month Membership -->
+            <div
+              class="product-card"
+              data-category="monthly"
+              data-page="12-month.html"
+            >
+              <div class="product-image-container">
+                <img
+                  src="Images/CardImages/Card4-12Month.png"
+                  alt="12 Month Membership"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category label">MONTH</span>
+                <h3 class="product-title title">12 Month Membership</h3>
+                <p class="product-description description">
+                  Best long-term value for frequent climbers!
+                </p>
+                <p class="product-price price">$27.50</p>
+              </div>
+            </div>
+
+            <!-- Product Card 5: Annual Prepaid - Regular -->
+            <div
+              class="product-card"
+              data-category="yearly"
+              data-page="annual-regular.html"
+            >
+              <div class="product-image-container">
+                <img
+                  src="Images/CardImages/Card5-Annual-Regular.png"
+                  alt="Annual Prepaid - Regular"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category label">YEAR</span>
+                <h3 class="product-title title">Annual Prepaid - Regular</h3>
+                <p class="product-description description">
+                  The ultimate value for individuals or groups ready to commit
+                  for a year!
+                </p>
+                <p class="product-price price">$26.50</p>
+              </div>
+            </div>
+
+            <!-- Product Card 6: Annual Prepaid - Family -->
+            <div
+              class="product-card"
+              data-category="yearly"
+              data-page="annual-family.html"
+            >
+              <div class="product-image-container">
+                <img
+                  src="Images/CardImages/Card6-Annual-Family.png"
+                  alt="Annual Prepaid - Family"
+                  class="product-image"
+                />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="product-info">
+                <span class="product-category label">YEAR</span>
+                <h3 class="product-title title">Annual Prepaid - Family</h3>
+                <p class="product-description description">
+                  Perfect for families: two adults max, minors included!
+                </p>
+                <p class="product-price price">$26.50</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-column location-info">
+          <h4>LOCATION</h4>
+          <div class="locations-container">
+            <div class="location">
+              <h5>Ferntree Gully</h5>
+              <p>8/1821 Ferntree Gully Road</p>
+              <p>Weekdays - 11am to 10pm</p>
+              <p>Early bird - Tuesdays 6am</p>
+              <p>Weekends - 10am - 8pm</p>
+              <p>(03) 8719 6444</p>
+            </div>
+            <div class="location">
+              <h5>Clayton South</h5>
+              <p>1418a Centre Rd</p>
+              <p>Weekdays - 9am to 10pm</p>
+              <p>Early bird - Thursdays 6am</p>
+              <p>Weekends - 8am - 8pm</p>
+              <p>(03) 8797 3448</p>
+            </div>
+            <div class="location">
+              <h5>Brunswick</h5>
+              <p>260-266 Barkly Street</p>
+              <p>Monday, Wednesday and Friday - 6am to 10pm</p>
+              <p>Tuesday and Thursday - 9am to 10pm</p>
+              <p>Weekends - 8am - 8pm</p>
+              <p>(03) 9304 4540</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-column learn-more-column">
+          <h4>LEARN MORE</h4>
+          <ul>
+            <li>
+              <a href="#"
+                >ABOUT US <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >CLASSES <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >FAQ <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >FIRST TIME <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column other-links-column">
+          <!-- No H4 here -->
+          <ul>
+            <li>
+              <a href="#"
+                >GALLERY <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >LOCATION <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >MEMBERSHIP <span class="external-link-icon">&#x2197;</span></a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column newsletter">
+          <form>
+            <div class="email-input-wrapper">
+              <input type="email" id="footer_email_input" name="email" />
+              <label for="footer_email_input" class="email-field-label"
+                >EMAIL</label
+              >
+            </div>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+
+    <!-- Full-screen Menu -->
+    <div class="full-screen-menu" id="fullScreenMenu">
+      <div class="menu-header">
+        <div class="container menu-header-container">
+          <div class="menu-header-left">
+            <h1 class="menu-boulder-lab-title">BOULDER LAB</h1>
+          </div>
+          <div class="menu-header-right">
+            <button class="search-btn">
+              <img
+                src="Images/Search-black.png"
+                alt="Search"
+                class="search-icon-menu"
+              />
+              SEARCH
+            </button>
+            <button class="close-menu-btn" id="closeMenuBtn">X CLOSE</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container menu-content">
+        <div class="menu-links-grid">
+          <!-- First Row: INFORMATION, PRICING, CLASSES -->
+          <div class="menu-column">
+            <h4>INFORMATION</h4>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Bookings +</a></li>
+              <li><a href="#">Location</a></li>
+              <li><a href="#">First time</a></li>
+              <li><a href="#">My membership</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Coaching team</a></li>
+              <li><a href="#">Jobs at BOULDERLAB</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-column">
+            <h4>PRICING</h4>
+            <ul>
+              <li><a href="#memberships-section">Memberships</a></li>
+              <li><a href="#">Entry pass</a></li>
+              <li><a href="#">Gear store</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-column">
+            <h4>CLASSES</h4>
+            <ul>
+              <li><a href="#">Bachelors of Bouldering</a></li>
+              <li><a href="#">Master of Bouldering</a></li>
+              <li><a href="#">Private coaching</a></li>
+              <li><a href="#">Strength climbing +</a></li>
+              <li><a href="#">Clinics +</a></li>
+            </ul>
+          </div>
+
+          <!-- Second Row: YOUTH PROGRAM, EVENTS -->
+          <div class="menu-column">
+            <h4>YOUTH PROGRAM</h4>
+            <ul>
+              <li><a href="#">Overview</a></li>
+              <li><a href="#">U12s</a></li>
+              <li><a href="#">Youth squad</a></li>
+              <li><a href="#">Junior elite</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-column">
+            <h4>EVENTS</h4>
+            <ul>
+              <li><a href="#">Borad comp 2024</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Gift cards</a></li>
+            </ul>
+          </div>
+
+          <!-- Circular Text SVG in third column of second row -->
+          <div class="menu-circular-text">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xml:lang="en"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 500 500"
+            >
+              <title>Circular Text Path</title>
+              <defs>
+                <path
+                  id="menuTextCircle"
+                  d="M250,400
+                           a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"
+                  transform="rotate(12,250,250)"
+                />
+              </defs>
+              <!-- Background highlight circle (hidden by default, appears on hover) -->
+              <circle cx="250" cy="250" r="150" class="highlight-circle" />
+              <g class="textcircle">
+                <text textLength="940">
+                  <textPath
+                    xlink:href="#menuTextCircle"
+                    aria-label="HAVE GOT MORE QUESTIONS? CONTACT US!"
+                    textLength="940"
+                  >
+                    HAVE GOT MORE QUESTIONS? CONTACT US!
+                  </textPath>
+                </text>
+              </g>
+              <!-- Centered EMAIL text -->
+              <text x="250" y="250" class="center-text">EMAIL</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🛒 CART OVERLAY -->
+    <div class="cart-background-overlay" id="cartBackgroundOverlay"></div>
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-container">
+        <!-- Cart Header -->
+        <div class="cart-header">
+          <div class="cart-header-left">
+            <span class="cart-bag-text">BAG</span>
+            <img src="Images/Cart.png" alt="Bag" class="cart-bag-icon" />
+            <span class="cart-item-count" id="cartItemCount">00</span>
+          </div>
+          <div class="cart-header-right">
+            <button class="cart-close-btn" id="cartCloseBtn">X CLOSE</button>
+          </div>
+        </div>
+
+        <!-- Cart Items Container (Scrollable) -->
+        <div class="cart-items-container" id="cartItemsContainer">
+          <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <!-- Cart Empty State -->
+        <div class="cart-empty-state" id="cartEmptyState">
+          <p>Your cart is empty</p>
+        </div>
+
+        <!-- Cart Main Content -->
+        <div class="cart-main-content" id="cartMainContent">
+          <!-- Cart Bottom Section -->
+          <div class="cart-bottom-section">
+            <!-- Bottom Separator -->
+            <div class="cart-bottom-separator"></div>
+
+            <!-- Subtotal -->
+            <div class="cart-subtotal">
+              <span class="cart-subtotal-label">SUBTOTAL (AUD)</span>
+              <span class="cart-subtotal-amount" id="cartSubtotal">$0.00</span>
+            </div>
+
+            <!-- Checkout Button -->
+            <button class="cart-checkout-btn">CHECKOUT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Cart button functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartBtn = document.querySelector(".cart-btn");
+        if (cartBtn && window.boulderLabCart) {
+          cartBtn.addEventListener("click", function () {
+            window.boulderLabCart.showCart();
+          });
+        }
+      });
+    </script>
+
+    <script>
+      // Product card navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const productCards = document.querySelectorAll(
+          ".product-card[data-page]"
+        );
+
+        productCards.forEach(function (card) {
+          card.addEventListener("click", function () {
+            const targetPage = this.getAttribute("data-page");
+            if (targetPage) {
+              window.location.href = targetPage;
+            }
+          });
+
+          // Add cursor pointer to indicate clickable
+          card.style.cursor = "pointer";
+        });
+      });
+    </script>
+  </body>
+</html>

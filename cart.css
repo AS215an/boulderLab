@@ -1,0 +1,551 @@
+/* Shopping Cart Background Overlay */
+.cart-background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #00000066; /* #000000 @ 40% opacity */
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: none; /* Instant animation */
+}
+
+.cart-background-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Shopping Cart Overlay Styles - Fixed Overflow Issue */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  right: -600px; /* Start hidden off-screen */
+  width: 600px; /* Exact Figma width */
+  height: 830px; /* Exact Figma height */
+  background: white;
+  z-index: 9999;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: none; /* Instant animation */
+  overflow-y: auto;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  box-sizing: border-box; /* Include borders/padding in width */
+}
+
+.cart-overlay.show {
+  right: 0; /* Slide in from right */
+}
+
+.cart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Empty State Background */
+.cart-overlay.empty {
+  background: radial-gradient(circle, #ffffff 0%, #f8f7f7 45%, #eceef0 100%);
+}
+
+.cart-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #666;
+}
+
+/* Row 1: Header - Black Border Below */
+.cart-header {
+  width: 100%; /* Use full container width */
+  max-width: 600px; /* Constrain maximum width */
+  height: 49px;
+  display: flex;
+  justify-content: space-between; /* Group A (BAG + icon + count) and Group B (X CLOSE) spacing */
+  align-items: center;
+  padding: 0 20px; /* Match product header padding for alignment */
+  border-bottom: 0.75px solid #000000; /* Black border as per Figma spec */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.cart-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Exact 8px gap between BAG, icon, quantity */
+}
+
+.cart-bag-text {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+}
+
+.cart-bag-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.cart-item-count {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000; /* Black color same as BAG label */
+}
+
+.cart-header-right {
+  padding: 0;
+}
+
+.cart-close-btn {
+  background: none;
+  border: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Row 2: Product Info - Centered and Aligned */
+.cart-product-header {
+  width: 100%; /* Use full container width */
+  max-width: 600px; /* Match cart overlay width */
+  height: 49px;
+  display: flex;
+  justify-content: space-between; /* Product name left, price right */
+  align-items: center; /* Vertically center text */
+  padding: 0 20px; /* Equal padding on both sides */
+  margin: 0 auto; /* Center the header within the cart */
+  box-sizing: border-box;
+}
+
+.cart-product-name {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 20px;
+  color: #000000;
+  text-align: left; /* Ensure left alignment */
+  flex: 1; /* Take available space */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Handle long text */
+  text-overflow: ellipsis; /* Add ... for very long names */
+}
+
+.cart-product-price {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  text-align: right; /* Ensure right alignment */
+  white-space: nowrap; /* Prevent text wrapping */
+  margin-left: 10px; /* Small gap from product name */
+}
+
+/* Row 3: Product Separator Line - Light Gray */
+.cart-separator {
+  width: calc(100% - 40px); /* Account for container padding */
+  max-width: 560px; /* Prevent touching edges */
+  height: 0.75px;
+  background: #e7e7e7; /* Light gray as per Figma spec */
+  margin: 10px 20px; /* Proper spacing and alignment */
+}
+
+/* New Layout Container */
+.cart-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; /* Aligns bottom edges of image and quantity */
+  padding: 0 20px 20px 20px; /* Increased bottom padding for more space */
+  gap: 20px; /* Increased gap for better spacing */
+  width: 100%;
+}
+
+.cart-product-image {
+  flex-shrink: 0;
+  width: 200px; /* Increased from 160px for less squished look */
+  height: 200px; /* Increased from 170px for better proportions */
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.cart-product-img {
+  width: 100%; /* Fill entire container */
+  height: 100%; /* Fill entire container */
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.cart-right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push quantity selector to bottom */
+  height: 200px; /* Match updated image height for proper alignment */
+  max-width: calc(
+    560px - 220px
+  ); /* Ensure it doesn't exceed consistent width minus image width */
+  overflow: hidden; /* Prevent content from spilling out */
+}
+
+.cart-product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cart-detail-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px; /* Increased padding for less squished appearance */
+}
+
+.cart-detail-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px; /* Restored to original size */
+  color: #000000;
+  padding-right: 12px;
+  min-width: 80px; /* Increased for better alignment */
+}
+
+.cart-detail-value {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px; /* Restored to original size */
+  color: #000000;
+  padding-left: 8px;
+}
+
+.cart-detail-separator {
+  width: calc(100% - 40px); /* Match main separator width calculation */
+  max-width: 560px; /* Match main separator max-width for consistency */
+  height: 0.75px;
+  background: #e7e7e7;
+  margin: 5px 0; /* Increased margin for better spacing */
+}
+
+/* Specific styling for location separator (bottom border) */
+.location-separator {
+  background: #e7e7e7; /* Same as other separators for consistency */
+  margin-bottom: 8px; /* Extra margin to separate from quantity */
+}
+
+/* Quantity Selector - Adjusted to fit properly */
+.cart-quantity-section {
+  width: 320px; /* Reduced width to fit within container */
+  height: 43px; /* Restored original height */
+  display: flex;
+  margin-top: 15px; /* Increased gap from product info */
+  max-width: calc(
+    560px - 220px
+  ); /* Constrain to fit within consistent width minus image */
+  /* No gap - parts should touch */
+}
+
+.cart-quantity-btn {
+  width: 90px; /* Reduced width to fit better */
+  height: 43px; /* Restored original height */
+  background: #ffffff;
+  border: 0.74px solid #000000;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none; /* Prevent resizing */
+}
+
+.cart-quantity-btn.disabled {
+  border-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.cart-quantity-btn.disabled .cart-quantity-icon {
+  color: #d9d9d9;
+}
+
+.cart-quantity-icon {
+  width: 15px; /* Restored original icon size */
+  height: 15px;
+  font-size: 15px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.cart-quantity-display {
+  width: 140px; /* Reduced width to fit better */
+  height: 43px; /* Restored original height */
+  background: #f7f8f7;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none; /* Prevent resizing */
+}
+
+.cart-quantity-value {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000 !important; /* Ensure visibility */
+  display: inline-block !important; /* Ensure it's displayed */
+  z-index: 10; /* Ensure it's above any background */
+}
+
+/* Individual Item Actions - Only REMOVE button */
+.cart-actions {
+  display: flex;
+  justify-content: flex-end; /* Align REMOVE button to the right */
+  padding: 0 20px; /* Match container padding */
+  margin: 15px 0; /* Increased margin for better spacing */
+  width: calc(100% - 40px); /* Account for padding to prevent cutoff */
+  max-width: 560px; /* Match separator width for consistency */
+  margin-left: 20px; /* Align with other elements */
+  position: relative;
+}
+
+.cart-remove-btn {
+  width: 140px; /* Increased width to prevent text cutoff */
+  height: 45px; /* Increased height to match original design */
+  background: transparent;
+  border: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px; /* Restored original font size */
+  color: #2b00ff;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text instead of flex-end */
+  gap: 10px; /* Increased gap to match original */
+  transition: background-color 0.2s ease;
+}
+
+.cart-remove-btn:hover {
+  background: #b0faff;
+  color: #2b00ff;
+}
+
+/* Global Continue Shopping Button */
+.cart-global-continue {
+  padding: 0 20px;
+  margin: 20px 0 10px 0; /* More spacing for global button */
+}
+
+.cart-global-continue-btn {
+  width: 222px; /* Original Figma width */
+  height: 45px; /* Original Figma height */
+  background: transparent;
+  border: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px; /* Original font size */
+  color: #2b00ff;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; /* Gap between X and text */
+  transition: background-color 0.2s ease;
+}
+
+.cart-global-continue-btn:hover {
+  background: #b0faff;
+  color: #2b00ff;
+}
+
+/* Section Divider Below Buttons */
+.cart-divider-bottom {
+  width: calc(100% - 40px); /* Match all other separators for consistency */
+  max-width: 560px;
+  height: 0.75px;
+  background: #000000;
+  border: none;
+  margin: 8px 20px; /* Align with container padding */
+  display: block;
+}
+
+/* 🛒 MULTI-PRODUCT CART STYLES */
+
+/* Cart Items Container - Scrollable Area */
+.cart-items-container {
+  flex: 1; /* Take available space */
+  overflow-y: auto; /* Enable scrolling for multiple items */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  max-height: calc(830px - 200px); /* Reserve space for header, footer */
+}
+
+/* Individual Cart Item */
+.cart-item {
+  margin-bottom: 15px; /* Reduced space between items */
+  border-bottom: none;
+}
+
+.cart-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Cart Bottom Section - Fixed at Bottom with 82px space */
+.cart-bottom-section {
+  margin-top: auto; /* Push to bottom */
+  padding-top: 20px; /* Space from content */
+  padding-bottom: 82px; /* Create 82px space at very bottom */
+  flex-shrink: 0; /* Don't shrink */
+}
+
+/* Bottom separator */
+.cart-bottom-separator {
+  width: 100%;
+  height: 0.75px;
+  background: #000000; /* Black separator */
+  margin: 20px 0;
+}
+
+/* Subtotal Section */
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+
+.cart-subtotal-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
+
+.cart-subtotal-amount {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: #000000;
+}
+
+/* Checkout Button - Original Figma Specs */
+.cart-checkout-btn {
+  width: 525px; /* Exact Figma width */
+  height: 123px; /* Exact Figma height */
+  background: #000000; /* Normal state: black background */
+  color: #ffffff; /* Normal state: white text */
+  border: 1px solid #000000; /* Border for hover effect */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 30px; /* Original font size from Figma */
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0 auto; /* Center horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 150px; /* Original Figma padding */
+  box-sizing: border-box;
+  transition: all 0.2s ease; /* Smooth hover transition */
+}
+
+.cart-checkout-btn:disabled {
+  background: #cccccc; /* Disabled state: grey background */
+  color: #ffffff; /* Disabled state: white text */
+  border: 1px solid #cccccc; /* Disabled state: grey border */
+  cursor: not-allowed;
+  opacity: 0.6; /* Accessibility hint */
+}
+
+.cart-checkout-btn:hover:not(:disabled) {
+  background: #ffffff; /* Hover state: white background */
+  color: #000000; /* Hover state: black text */
+  border: 1px solid #000000; /* Maintain border */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-overlay {
+    width: 100vw;
+    right: -100vw;
+    height: 100vh;
+  }
+
+  .cart-overlay.show {
+    right: 0;
+  }
+
+  .cart-header {
+    width: 100%;
+  }
+
+  .cart-product-header {
+    width: 100%;
+  }
+
+  .cart-separator {
+    width: 100%;
+  }
+
+  .cart-product-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .cart-product-img {
+    width: 200px;
+    height: 210px;
+  }
+
+  .cart-quantity-section {
+    margin-left: 0;
+    align-self: center;
+  }
+
+  .cart-actions {
+    margin-left: 0;
+    justify-content: space-around;
+  }
+
+  .cart-checkout-btn {
+    width: 90%;
+    height: 60px;
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-overlay {
+    width: 100vw;
+    right: -100vw;
+  }
+
+  .cart-quantity-btn {
+    width: 80px;
+  }
+
+  .cart-quantity-display {
+    width: 100px;
+  }
+
+  .cart-checkout-btn {
+    width: 95%;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

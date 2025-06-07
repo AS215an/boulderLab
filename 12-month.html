@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="months.css" />
+    <link rel="stylesheet" href="cart.css" />
+    <!-- Global Cart System -->
+    <script src="cart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -470,6 +473,45 @@
             this.classList.remove("inactive");
           });
         });
+
+        // 🛒 12-MONTH PRODUCT PAGE INTEGRATION
+
+        // Initialize global cart system
+        const cart = window.boulderLabCart;
+        cart.initialize();
+
+        // Add to Cart functionality
+        const addToCartBtn = document.querySelector(".add-to-cart-btn");
+        addToCartBtn.addEventListener("click", function () {
+          // Get current selections
+          const selectedMonth = document.querySelector(
+            ".option-value.active"
+          ).textContent;
+          const selectedLocation =
+            document.querySelector(".selected-location").textContent;
+          const currentQuantity = parseInt(
+            document.querySelector(".quantity-value").textContent
+          );
+
+          // Add product to global cart
+          cart.addProduct({
+            type: "12-month",
+            title: "12 Month Membership",
+            price: 118.5, // $27.50 * 4.3 weeks/month = 118.50/month
+            quantity: currentQuantity,
+            months: selectedMonth,
+            location: selectedLocation,
+            // image: automatically handled by cart.getProductImage()
+          });
+        });
+
+        // Cart button functionality
+        const cartBtn = document.querySelector(".cart-btn");
+        if (cartBtn) {
+          cartBtn.addEventListener("click", function () {
+            cart.showCart();
+          });
+        }
       });
     </script>
 
@@ -580,6 +622,56 @@
               </g>
               <text x="250" y="250" class="center-text">EMAIL</text>
             </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shopping Cart Background Overlay -->
+    <div class="cart-background-overlay" id="cartBackgroundOverlay"></div>
+
+    <!-- Shopping Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-container">
+        <!-- Empty State (hidden by default) -->
+        <div class="cart-empty-state" id="cartEmptyState" style="display: none">
+          <div>EMPTY</div>
+        </div>
+
+        <!-- Main Cart Content -->
+        <div class="cart-main-content" id="cartMainContent">
+          <!-- Row 1: Header -->
+          <div class="cart-header">
+            <div class="cart-header-left">
+              <span class="cart-bag-text">BAG</span>
+              <img src="Images/Cart.png" alt="Bag" class="cart-bag-icon" />
+              <span class="cart-item-count" id="cartItemCount">00</span>
+            </div>
+            <div class="cart-header-right">
+              <button class="cart-close-btn" id="cartCloseBtn">X CLOSE</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Cart Items Container -->
+          <div class="cart-items-container" id="cartItemsContainer">
+            <!-- Cart items will be dynamically rendered here -->
+          </div>
+
+          <!-- Cart Bottom Section -->
+          <div class="cart-bottom-section">
+            <!-- Bottom separator -->
+            <div class="cart-bottom-separator"></div>
+
+            <!-- Subtotal -->
+            <div class="cart-subtotal">
+              <span class="cart-subtotal-label">SUBTOTAL (AUD)</span>
+              <span class="cart-subtotal-amount" id="cartSubtotal">$0.00</span>
+            </div>
+
+            <!-- Checkout button -->
+            <button class="cart-checkout-btn" id="cartCheckoutBtn">
+              CHECKOUT
+            </button>
           </div>
         </div>
       </div>

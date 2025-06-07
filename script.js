@@ -20,11 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let visibleProducts = 0;
     productCards.forEach((card) => {
       const cardCategory = card.dataset.category;
+
+      // Find the wrapper element (could be .product-card or .product-card-link)
+      const wrapper = card.closest(".product-card-link") || card;
+
       if (filterValue === "all" || filterValue === cardCategory) {
-        card.style.display = "block";
+        wrapper.style.display = "block";
         visibleProducts++;
       } else {
-        card.style.display = "none";
+        wrapper.style.display = "none";
       }
     });
     resultsCount.textContent = `${visibleProducts} Result${

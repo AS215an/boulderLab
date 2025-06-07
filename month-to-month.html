@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="product.css" />
+    <link rel="stylesheet" href="cart.css" />
+    <!-- Global Cart System -->
+    <script src="cart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -466,8 +469,398 @@
             this.classList.remove("inactive");
           });
         });
+
+        // 🛒 MULTI-PRODUCT CART STATE MANAGEMENT
+        class CartManager {
+          constructor() {
+            this.cartKey = "boulderlab_cart";
+            this.loadCart();
+            this.initializeElements();
+            this.bindEvents();
+          }
+
+          // Load cart from localStorage
+          loadCart() {
+            const saved = localStorage.getItem(this.cartKey);
+            this.cartItems = saved ? JSON.parse(saved) : [];
+          }
+
+          // Save cart to localStorage
+          saveCart() {
+            localStorage.setItem(this.cartKey, JSON.stringify(this.cartItems));
+          }
+
+          // Initialize DOM elements
+          initializeElements() {
+            this.addToCartBtn = document.querySelector(".add-to-cart-btn");
+            this.cartOverlay = document.getElementById("cartOverlay");
+            this.cartBackgroundOverlay = document.getElementById(
+              "cartBackgroundOverlay"
+            );
+            this.cartCloseBtn = document.getElementById("cartCloseBtn");
+            this.cartContinueBtn = document.querySelector(".cart-continue-btn");
+            this.cartItemCount = document.getElementById("cartItemCount");
+            this.cartItemsContainer =
+              document.getElementById("cartItemsContainer");
+            this.cartSubtotal = document.getElementById("cartSubtotal");
+            this.cartEmptyState = document.getElementById("cartEmptyState");
+            this.cartMainContent = document.getElementById("cartMainContent");
+          }
+
+          // Bind event listeners
+          bindEvents() {
+            this.addToCartBtn.addEventListener("click", () => this.addToCart());
+            this.cartCloseBtn.addEventListener("click", () => this.closeCart());
+            this.cartContinueBtn.addEventListener("click", () =>
+              this.closeCart()
+            );
+            this.cartBackgroundOverlay.addEventListener("click", () =>
+              this.closeCart()
+            );
+          }
+
+          // Add product to cart
+          addToCart() {
+            const selectedMonth = document.querySelector(
+              ".option-value.active"
+            ).textContent;
+            const selectedLocation =
+              document.querySelector(".selected-location").textContent;
+            const currentQuantity = parseInt(
+              document.querySelector(".quantity-value").textContent
+            );
+
+            const newItem = {
+              id: "month-to-month-" + Date.now(), // Unique ID
+              title: "Month to Month Membership",
+              price: 149.5,
+              quantity: currentQuantity,
+              months: selectedMonth,
+              location: selectedLocation,
+              image: "Images/CardImages/Card2-MonthToMonth.png",
+            };
+
+            // Check if same product with same options already exists
+            const existingIndex = this.cartItems.findIndex(
+              (item) =>
+                item.title === newItem.title &&
+                item.months === newItem.months &&
+                item.location === newItem.location
+            );
+
+            if (existingIndex >= 0) {
+              // Update quantity of existing item
+              this.cartItems[existingIndex].quantity += newItem.quantity;
+            } else {
+              // Add as new item
+              this.cartItems.push(newItem);
+            }
+
+            this.saveCart();
+            this.renderCart();
+            this.showCart();
+          }
+
+          // Remove item from cart
+          removeItem(itemId) {
+            this.cartItems = this.cartItems.filter(
+              (item) => item.id !== itemId
+            );
+            this.saveCart();
+            this.renderCart();
+
+            // If cart is empty, show empty state
+            if (this.cartItems.length === 0) {
+              this.showEmptyState();
+            }
+          }
+
+          // Update item quantity
+          updateQuantity(itemId, newQuantity) {
+            const item = this.cartItems.find((item) => item.id === itemId);
+            if (item && newQuantity > 0) {
+              item.quantity = newQuantity;
+              this.saveCart();
+              this.renderCart();
+            }
+          }
+
+          // Calculate total quantity
+          getTotalQuantity() {
+            return this.cartItems.reduce(
+              (total, item) => total + item.quantity,
+              0
+            );
+          }
+
+          // Calculate subtotal
+          getSubtotal() {
+            return this.cartItems.reduce(
+              (total, item) => total + item.price * item.quantity,
+              0
+            );
+          }
+
+          // Render cart items
+          renderCart() {
+            this.updateCartCount();
+            this.updateSubtotal();
+
+            if (this.cartItems.length === 0) {
+              this.showEmptyState();
+              return;
+            }
+
+            this.showMainContent();
+            this.cartItemsContainer.innerHTML = "";
+
+            this.cartItems.forEach((item) => {
+              const itemHTML = this.createCartItemHTML(item);
+              this.cartItemsContainer.appendChild(itemHTML);
+            });
+          }
+
+          // Create HTML for individual cart item
+          createCartItemHTML(item) {
+            const itemElement = document.createElement("div");
+            itemElement.className = "cart-item";
+            itemElement.setAttribute("data-item-id", item.id);
+
+            itemElement.innerHTML = `
+              <!-- Product Info Header -->
+              <div class="cart-product-header">
+                <span class="cart-product-name">${item.title}</span>
+                <span class="cart-product-price">$${item.price.toFixed(
+                  2
+                )}</span>
+              </div>
+
+              <!-- Separator -->
+              <div class="cart-separator"></div>
+
+              <!-- Product Details -->
+              <div class="cart-product-details">
+                <div class="cart-product-image">
+                  <img src="${item.image}" alt="${
+              item.title
+            }" class="cart-product-img" />
+                </div>
+
+                <div class="cart-product-info">
+                  <div class="cart-detail-row">
+                    <span class="cart-detail-label">Month(s):</span>
+                    <span class="cart-detail-value">${item.months}</span>
+                  </div>
+                  <div class="cart-detail-separator"></div>
+                  <div class="cart-detail-row">
+                    <span class="cart-detail-label">Location:</span>
+                    <span class="cart-detail-value">${item.location}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gap -->
+              <div class="cart-gap"></div>
+
+              <!-- Quantity Selector -->
+              <div class="cart-quantity-section">
+                <button class="cart-quantity-btn cart-minus-btn" ${
+                  item.quantity <= 1 ? "disabled" : ""
+                }>
+                  <span class="cart-quantity-icon">−</span>
+                </button>
+                <div class="cart-quantity-display">
+                  <span class="cart-quantity-value">${item.quantity}</span>
+                </div>
+                <button class="cart-quantity-btn cart-plus-btn">
+                  <span class="cart-quantity-icon">+</span>
+                </button>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="cart-actions">
+                <button class="cart-continue-btn">
+                  <span>X</span>
+                  <span>CONTINUE SHOPPING</span>
+                </button>
+                <button class="cart-remove-btn" data-remove-id="${item.id}">
+                  <span>X</span>
+                  <span>REMOVE</span>
+                </button>
+              </div>
+
+              <!-- Section divider -->
+              <hr class="cart-divider-bottom" />
+            `;
+
+            // Bind quantity controls for this item
+            this.bindItemControls(itemElement, item.id);
+
+            return itemElement;
+          }
+
+          // Bind controls for individual cart item
+          bindItemControls(itemElement, itemId) {
+            const minusBtn = itemElement.querySelector(".cart-minus-btn");
+            const plusBtn = itemElement.querySelector(".cart-plus-btn");
+            const removeBtn = itemElement.querySelector(".cart-remove-btn");
+            const continueBtn = itemElement.querySelector(".cart-continue-btn");
+
+            minusBtn.addEventListener("click", () => {
+              const item = this.cartItems.find((i) => i.id === itemId);
+              if (item && item.quantity > 1) {
+                this.updateQuantity(itemId, item.quantity - 1);
+              }
+            });
+
+            plusBtn.addEventListener("click", () => {
+              const item = this.cartItems.find((i) => i.id === itemId);
+              if (item) {
+                this.updateQuantity(itemId, item.quantity + 1);
+              }
+            });
+
+            removeBtn.addEventListener("click", () => {
+              this.removeItem(itemId);
+            });
+
+            continueBtn.addEventListener("click", () => {
+              this.closeCart();
+            });
+          }
+
+          // Update cart count in header
+          updateCartCount() {
+            const totalQuantity = this.getTotalQuantity();
+            this.cartItemCount.textContent = totalQuantity
+              .toString()
+              .padStart(2, "0");
+          }
+
+          // Update subtotal
+          updateSubtotal() {
+            const subtotal = this.getSubtotal();
+            this.cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+          }
+
+          // Show cart overlay
+          showCart() {
+            this.renderCart();
+            this.cartBackgroundOverlay.classList.add("show");
+            this.cartOverlay.classList.add("show");
+          }
+
+          // Close cart
+          closeCart() {
+            this.cartOverlay.classList.remove("show");
+            this.cartBackgroundOverlay.classList.remove("show");
+          }
+
+          // Show empty state
+          showEmptyState() {
+            this.cartEmptyState.style.display = "flex";
+            this.cartMainContent.style.display = "none";
+            this.cartOverlay.classList.add("empty");
+          }
+
+          // Show main content
+          showMainContent() {
+            this.cartEmptyState.style.display = "none";
+            this.cartMainContent.style.display = "block";
+            this.cartOverlay.classList.remove("empty");
+          }
+        }
+
+        // 🛒 MONTH-TO-MONTH PRODUCT PAGE INTEGRATION
+
+        // Initialize global cart system
+        const cart = window.boulderLabCart;
+        cart.initialize();
+
+        // Add to Cart functionality
+        const addToCartBtn = document.querySelector(".add-to-cart-btn");
+        addToCartBtn.addEventListener("click", function () {
+          // Get current selections
+          const selectedMonth = document.querySelector(
+            ".option-value.active"
+          ).textContent;
+          const selectedLocation =
+            document.querySelector(".selected-location").textContent;
+          const currentQuantity = parseInt(
+            document.querySelector(".quantity-value").textContent
+          );
+
+          // Add product to global cart
+          cart.addProduct({
+            type: "month-to-month",
+            title: "Month to Month Membership",
+            price: 149.5,
+            quantity: currentQuantity,
+            months: selectedMonth,
+            location: selectedLocation,
+            // image: automatically handled by cart.getProductImage()
+          });
+        });
+
+        // Cart button functionality
+        const cartBtn = document.getElementById("cartBtn");
+        if (cartBtn) {
+          cartBtn.addEventListener("click", function () {
+            cart.showCart();
+          });
+        }
       });
     </script>
+
+    <!-- Shopping Cart Background Overlay -->
+    <div class="cart-background-overlay" id="cartBackgroundOverlay"></div>
+
+    <!-- Shopping Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-container">
+        <!-- Empty State (hidden by default) -->
+        <div class="cart-empty-state" id="cartEmptyState" style="display: none">
+          <div>EMPTY</div>
+        </div>
+
+        <!-- Main Cart Content -->
+        <div class="cart-main-content" id="cartMainContent">
+          <!-- Row 1: Header -->
+          <div class="cart-header">
+            <div class="cart-header-left">
+              <span class="cart-bag-text">BAG</span>
+              <img src="Images/Cart.png" alt="Bag" class="cart-bag-icon" />
+              <span class="cart-item-count" id="cartItemCount">00</span>
+            </div>
+            <div class="cart-header-right">
+              <button class="cart-close-btn" id="cartCloseBtn">X CLOSE</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Cart Items Container -->
+          <div class="cart-items-container" id="cartItemsContainer">
+            <!-- Cart items will be dynamically rendered here -->
+          </div>
+
+          <!-- Cart Bottom Section -->
+          <div class="cart-bottom-section">
+            <!-- Bottom separator -->
+            <div class="cart-bottom-separator"></div>
+
+            <!-- Subtotal -->
+            <div class="cart-subtotal">
+              <span class="cart-subtotal-label">SUBTOTAL (AUD)</span>
+              <span class="cart-subtotal-amount" id="cartSubtotal">$0.00</span>
+            </div>
+
+            <!-- Checkout button -->
+            <button class="cart-checkout-btn" id="cartCheckoutBtn">
+              CHECKOUT
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Full-screen Menu -->
     <div class="full-screen-menu" id="fullScreenMenu">

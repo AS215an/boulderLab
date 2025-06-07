@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Boulder Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="stylesheet" href="checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="checkout-container">
+        <!-- Left Column: Checkout Form -->
+        <div class="checkout-main">
+          <div class="checkout-header">
+            <h1 class="checkout-title">BOULDER LAB</h1>
+            <a href="index.html" class="continue-shopping"
+              >X CONTINUE SHOPPING</a
+            >
+          </div>
+
+          <div class="checkout-steps">
+            <!-- Step 1: Membership Details -->
+            <div class="checkout-step active" id="step1">
+              <div class="step-header">
+                <h2 class="step-title">[1] MEMBERSHIP DETAILS</h2>
+                <button class="edit-btn" id="edit-step1" style="display: none">
+                  EDIT
+                </button>
+              </div>
+
+              <div class="step-content" id="step1-content">
+                <form id="membership-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="firstName"
+                        required
+                      />
+                      <label for="firstName" class="form-label"
+                        >First Name*</label
+                      >
+                      <div class="error-message" id="firstName-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="lastName"
+                        required
+                      />
+                      <label for="lastName" class="form-label"
+                        >Last Name*</label
+                      >
+                      <div class="error-message" id="lastName-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group full-width">
+                      <input
+                        type="email"
+                        class="form-input"
+                        placeholder=" "
+                        id="email"
+                        required
+                      />
+                      <label for="email" class="form-label">Email*</label>
+                      <div class="error-message" id="email-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <input
+                        type="tel"
+                        class="form-input"
+                        placeholder=" "
+                        id="phone"
+                        required
+                      />
+                      <label for="phone" class="form-label"
+                        >Phone Number*</label
+                      >
+                      <div class="error-message" id="phone-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="dob"
+                        required
+                      />
+                      <label for="dob" class="form-label"
+                        >Date of Birth* (YYYY/MM/DD)</label
+                      >
+                      <div class="error-message" id="dob-error">
+                        *Invalid format. Please use YYYY/MM/DD (e.g.,
+                        2003/04/21).
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="checkbox-group">
+                    <div class="checkbox-item">
+                      <div class="checkbox-content">
+                        <input
+                          type="checkbox"
+                          class="checkbox-input"
+                          id="terms"
+                          required
+                        />
+                        <label for="terms" class="checkbox-label">
+                          I accept the
+                          <span class="terms-link"
+                            >General Terms & Conditions</span
+                          >
+                          and <span class="terms-link">Privacy Policy</span>.*
+                        </label>
+                      </div>
+                      <div class="checkbox-error" id="terms-error">
+                        *You must agree to the Terms and Conditions before
+                        continuing to payment.
+                      </div>
+                    </div>
+                    <div class="checkbox-item">
+                      <div class="checkbox-content">
+                        <input
+                          type="checkbox"
+                          class="checkbox-input"
+                          id="newsletter"
+                        />
+                        <label for="newsletter" class="checkbox-label">
+                          I would like to be the first to receive updates about
+                          exclusive news from BOULDER LAB!
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="checkout-btn"
+                    id="continue-to-payment"
+                  >
+                    CONTINUE TO PAYMENT
+                  </button>
+                </form>
+              </div>
+
+              <div class="step-summary" id="step1-summary">
+                <div class="summary-row">
+                  <span class="summary-label">Name:</span>
+                  <span class="summary-value" id="summary-name"
+                    >University Melbourne</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Phone Number:</span>
+                  <span class="summary-value" id="summary-phone"
+                    >0123456789</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Email:</span>
+                  <span class="summary-value" id="summary-email"
+                    >universitym@unimelb.edu.au</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Date-of-Birth:</span>
+                  <span class="summary-value" id="summary-dob">2003/04/21</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Payment -->
+            <div class="checkout-step" id="step2">
+              <div class="step-header">
+                <h2 class="step-title">[2] PAYMENT</h2>
+                <button class="edit-btn" id="edit-step2" style="display: none">
+                  EDIT
+                </button>
+              </div>
+
+              <div class="step-content" id="step2-content">
+                <form id="payment-form">
+                  <div class="form-row">
+                    <div class="form-group full-width">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="cardName"
+                        required
+                      />
+                      <label for="cardName" class="form-label"
+                        >Name on Card*</label
+                      >
+                      <div class="error-message" id="cardName-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group full-width">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="cardNumber"
+                        required
+                      />
+                      <label for="cardNumber" class="form-label"
+                        >Card Number*</label
+                      >
+                      <div class="error-message" id="cardNumber-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="expiryDate"
+                        required
+                      />
+                      <label for="expiryDate" class="form-label"
+                        >Expiry Date* (MM/YY)</label
+                      >
+                      <div class="error-message" id="expiryDate-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder=" "
+                        id="securityCode"
+                        required
+                      />
+                      <label for="securityCode" class="form-label"
+                        >Security Code*</label
+                      >
+                      <div class="error-message" id="securityCode-error">
+                        *Please complete all required fields before continuing.
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" class="checkout-btn" id="confirm-order">
+                    CONFIRM ORDER
+                  </button>
+                </form>
+              </div>
+
+              <div class="step-summary" id="step2-summary">
+                <div class="summary-row">
+                  <span class="summary-label">Name:</span>
+                  <span class="summary-value" id="payment-summary-name"
+                    >University Melbourne</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Card Number:</span>
+                  <span class="summary-value" id="payment-summary-card"
+                    >0123456789</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Expiry Date:</span>
+                  <span class="summary-value" id="payment-summary-expiry"
+                    >••• / •••</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Security Number:</span>
+                  <span class="summary-value" id="payment-summary-security"
+                    >•••</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Order Review -->
+            <div class="checkout-step" id="step3">
+              <div class="step-header">
+                <h2 class="step-title">[3] ORDER REVIEW</h2>
+              </div>
+
+              <div class="step-content" id="step3-content">
+                <div class="review-section">
+                  <div id="review-items-container">
+                    <!-- Dynamic order review items will be populated here -->
+                  </div>
+                </div>
+
+                <button type="button" class="checkout-btn" id="purchase-btn">
+                  PURCHASE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Order Summary -->
+        <div class="order-summary">
+          <h2 class="order-title">YOUR ORDER</h2>
+
+          <div class="order-items" id="order-items">
+            <!-- Dynamic cart items will be populated here -->
+          </div>
+
+          <div class="gift-card-section">
+            <div class="gift-card-input">
+              <input
+                type="text"
+                class="gift-card-field"
+                placeholder="Have a gift card? Add your code"
+              />
+              <button class="gift-card-btn">+</button>
+            </div>
+          </div>
+
+          <div class="pricing-breakdown">
+            <div class="price-row">
+              <span class="price-label">SUBTOTAL</span>
+              <span class="price-value" id="subtotal-amount">$149.50</span>
+            </div>
+            <div class="price-row">
+              <span class="price-label">STARTUP FEE - INDIVIDUAL</span>
+              <span class="price-value">$39.00</span>
+            </div>
+          </div>
+
+          <div class="total-section">
+            <div class="total-row">
+              <span class="total-label">TOTAL (AUD)</span>
+              <span class="total-value" id="total-amount">$188.50</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+  </body>
+</html>

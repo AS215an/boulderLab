@@ -174,16 +174,49 @@ header {
 }
 
 .cart-icon-img {
-  max-height: 20px; /* Let's make it similar to search icon, adjust as needed */
+  max-height: 24px; /* Increased to match text size */
   width: auto;
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and count */
 }
 
 .cart-count {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 15px; /* Changed to 15px as requested */
   color: #000;
   font-weight: normal;
   line-height: 1;
+  display: inline-block; /* Ensure it's visible */
+}
+
+/* Cart Button States - Dynamic Icon Change When Items Present */
+.cart-btn.cart-has-items {
+  background: none; /* Remove background since the new icon has blue background */
+  border-radius: 0; /* Remove border radius */
+  padding: 0; /* Remove padding */
+  transition: all 0.2s ease; /* Smooth transition */
+  display: flex !important; /* Ensure flexbox layout is maintained */
+  align-items: center !important; /* Ensure items stay aligned */
+  gap: 8px !important; /* Maintain gap */
+}
+
+.cart-btn.cart-has-items .cart-icon-img {
+  content: url("Images/Cart-item.png"); /* Use the specific cart-item.png */
+  max-height: 24px; /* Match the increased size */
+  width: auto;
+}
+
+.cart-count.cart-count-active {
+  color: #ffffff !important; /* White text color since cart-item.png has blue background */
+  font-weight: 500; /* Slightly bolder font weight */
+  display: inline-block !important; /* Force visibility */
+  font-size: 15px !important; /* Ensure font size is maintained */
+  position: relative; /* Ensure it's positioned above any potential background issues */
+  z-index: 10; /* Ensure it appears above the cart icon */
 }
 
 /* Breadcrumbs */
